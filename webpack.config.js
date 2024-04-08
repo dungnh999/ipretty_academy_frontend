@@ -26,4 +26,14 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', ',jsx', '.json', '.svg', '.jpg'],
+    fallback: {
+      fs: false,
+    },
+    alias: {
+      'academy': path.resolve(__dirname, 'src/'),
+      'assets' : path.resolve(__dirname, 'src/assets/'),
+    }
+  }
 }
