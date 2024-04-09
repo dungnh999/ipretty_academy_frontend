@@ -30,6 +30,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
+      {
+        loader: "file-loader",
+        test: /\.(eot|otf|png|svg|jpg|ttf|woff|woff2)(\?v=[0-9.]+)?$/
+      },
     ],
   },
   devServer: {
