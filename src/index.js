@@ -1,13 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import 'assets/index.css';
-import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import Router from 'academy/Router/Router';
+import {I18nextProvider} from 'react-i18next';
+import i18next from 'i18next';
+import HeaderLayout from "academy/layouts/MainLayout/HeaderLayout";
+// import App from "academy/App";
+const App = (Router);
+
+ReactDOM.render(
+    <App/>,
+    document.querySelector('#root')
 );
 
 // If you want to start measuring performance in your app, pass a function
