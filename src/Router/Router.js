@@ -12,7 +12,9 @@ const PublicRouter = ({ component: Component, isLoggerIn, ...rest }) => (
         render = {(props) =>
             (
                 <MainLayout>
-                    <Component {...props} />
+                    <main>
+                        <Component {...props} />
+                    </main>
                 </MainLayout>
             )
         }
