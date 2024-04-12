@@ -12,15 +12,13 @@ const Banner = (props) => {
             >
                 <div className="flex flex-col justify-center mx-auto max-w-screen-xl h-full">
                     <div className="max-w-2xl">
-                        <p className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900">
-                            Beautifully crafted UI components, ready for your next project.
+                        <p className="mt-4 tracking-tight font-semibold text-4xl">
+                            Build Skills with <br/> Online Course
                         </p>
                     </div>
                     <div className="max-w-xl">
-                        <p className="mt-4 text-base leading-7 text-slate-700">Over 500+
-                            professionally designed, fully responsive, expertly crafted component examples you can drop
-                            into
-                            your Tailwind projects and customize to your heart’s content.
+                        <p className="mt-4 text-base leading-7 font-normal">Over 500+
+                            We denounce with righteous indignation and dislike men who are so beguiled and demoralized that cannot trouble.
                         </p>
                     </div>
                     <div className="max-w-xl">

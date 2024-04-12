@@ -4,7 +4,7 @@ import logo from 'assets/logo.svg'
 const HeaderLayout = (props) => {
     return (
         <header>
-            <nav className="bg-white border-gray-200 dark:bg-gray-800">
+            <nav className="bg-white border-gray-200">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl h-[4.5rem]">
                     <a href="https://flowbite.com" className="flex items-center">
                         <img src={logo} className="mr-3 h-6 sm:h-9"
