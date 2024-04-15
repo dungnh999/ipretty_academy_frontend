@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'assets/index.css';
+import 'academy/index.scss';
 
 import Router from 'academy/Router/Router';
 import {I18nextProvider} from 'react-i18next';

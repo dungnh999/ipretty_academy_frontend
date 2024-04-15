@@ -11,16 +11,22 @@ module.exports = {
       sm: '0.8rem',
       base: '1.125rem',
       xl: '1.25rem',
-      '2xl': '2rem',
-      '3xl': '1.953rem',
-      '4xl': '3rem',
-      '5xl': '3.052rem',
+          '2xl': '2rem',
+          '3xl': '1.953rem',
+          '4xl': '3rem',
+          '5xl': '3.052rem',
     },
     fontFamily: {
       sans: ["Exo", ...defaultTheme.fontFamily.sans],
     },
     extend: {
-
+      colors: {
+        bgColor: "#147B65",
+        primaryColor: "#147B65",
+        secondaryColor: "#555",
+        thirdColor: "#000",
+        whiteColor: "#fff"
+      }
     },
   },
   plugins: [],
