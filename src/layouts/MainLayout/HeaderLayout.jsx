@@ -1,19 +1,18 @@
 import React from 'react';
-import logo from 'assets/logo.svg'
-
+import logo from 'assets/logo/logo-header.png'
+import { useTranslation } from 'react-i18next';
 const HeaderLayout = (props) => {
+    const { t } = useTranslation();
     return (
         <header>
-            <nav className="bg-white border-gray-200 dark:bg-gray-800">
+            <nav className="bg-white border-gray-200">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl h-[4.5rem]">
-                    <a href="https://flowbite.com" className="flex items-center">
-                        <img src={logo} className="mr-3 h-6 sm:h-9"
+                    <a href="https://flowbite.com" className="flex items-center h-14 mr-3">
+                        <img src={logo} className="h-full"
                              alt="Flowbite Logo"/>
                     </a>
                     <div className="flex items-center lg:order-2">
-                        <a href="#"
-                           className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log
-                            in</a>
+                        <a href="#" className="text-gray-800 dark:text-white hover:bg-primaryColor font-medium rounded-lg px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 text-base">Đăng nhập/ Đăng ký</a>
                         <button data-collapse-toggle="mobile-menu-2" type="button"
                                 className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                                 aria-controls="mobile-menu-2" aria-expanded="false">
@@ -36,35 +35,31 @@ const HeaderLayout = (props) => {
                          id="mobile-menu-2">
                         <ul className="flex flex-col mt-4 font-medium justify-center lg:flex-row lg:mt-0">
                             <li className="px-5 gap-1">
-                                <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                    Home
+                                <a href="#" className="block py-2 pr-4 pl-3 text-sm text-gray-700 border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                    { t("header.menu.home") }
                                 </a>
                             </li>
                             <li className="px-5 gap-1">
                                 <a href="#"
-                                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                    Courses
+                                   className="block py-2 pr-4 pl-3 text-sm text-gray-700 border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                    { t("header.menu.course") }
                                 </a>
                             </li>
                             <li className="px-5">
                                 <a href="#"
-                                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                    Blog
+                                   className="block py-2 pr-4 pl-3 text-sm text-gray-700 border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                    { t("header.menu.blog") }
                                 </a>
                             </li>
                             <li className="px-5">
                                 <a href="#"
-                                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                                    Page
+                                   className="block py-2 pr-4 pl-3 text-sm text-gray-700 border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
+                                    { t("header.menu.category") }
                                 </a>
-                            </li>
-                            <li className="px-5">
-                                <a href="#"
-                                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">LearnPress
-                                    Add-On</a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </header>

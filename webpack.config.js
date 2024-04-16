@@ -10,9 +10,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx$)/i,
+        test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, 'src'),
-        exclude: /node_modules|bower_components/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader"
         }
@@ -34,8 +34,39 @@ module.exports = {
         loader: "file-loader",
         test: /\.(eot|otf|png|svg|jpg|ttf|woff|woff2)(\?v=[0-9.]+)?$/
       },
+      {
+        test: /\.md$/i,
+        use: 'raw-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.less$/,
+        use: [{
+          loader: 'style-loader' // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader' // translates CSS into CommonJS
+        }, {
+          loader: 'less-loader' // compiles Less to CSS
+        }]
+      },
     ],
   },
+  // optimization: {
+  //   removeAvailableModules: false,
+  //   removeEmptyChunks: false,
+  //   splitChunks: false,
+  //   minimizer: [
+  //     new TerserPlugin({
+  //       parallel: false,
+  //       terserOptions: {
+  //         ecma: 6,
+  //       },
+  //     }),
+  //   ],
+  // },
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'build'),

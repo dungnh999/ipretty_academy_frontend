@@ -5,7 +5,7 @@ const Banner = (props) => {
     return (
         <div className='mx-auto w-full'>
             <div
-                className="py-20 bg-cover bg-no-repeat h-[43rem]"
+                className="py-20 bg-cover bg-no-repeat h-[43.75rem]"
                 style={{
                     backgroundImage: `url(${ banner })`
                 }}
@@ -17,14 +17,14 @@ const Banner = (props) => {
                         </p>
                     </div>
                     <div className="max-w-xl">
-                        <p className="mt-4 text-base leading-7 text-slate-700">Over 500+
+            x            <p className="mt-4 text-base leading-7 text-slate-700">Over 500+
                             professionally designed, fully responsive, expertly crafted component examples you can drop
                             into
                             your Tailwind projects and customize to your heart’s content.
                         </p>
                     </div>
                     <div className="max-w-xl">
-                        <button>ádsadgsadgshdgahsđshj</button>
+                        <button></button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,10 @@
+{
+  "header" : {
+    "menu" : {
+      "home" : "Trang chủ",
+      "course" : "Khoá học",
+      "blog" : "Bài viết",
+      "category" : "Danh mục"
+    }
+  }
+}

@@ -1,16 +1,17 @@
+import i18n from 'academy/locales/config/index'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'assets/index.css';
-
+import 'academy/css/index.css';
 import Router from 'academy/Router/Router';
-import {I18nextProvider} from 'react-i18next';
-import i18next from 'i18next';
-import HeaderLayout from "academy/layouts/MainLayout/HeaderLayout";
-// import App from "academy/App";
+import { I18nextProvider } from 'react-i18next';
 const App = (Router);
 
 ReactDOM.render(
-    <App/>,
+    <>
+        <I18nextProvider i18n={i18n}>
+            <App/>,
+        </I18nextProvider>;
+    </>,
     document.querySelector('#root')
 );
 

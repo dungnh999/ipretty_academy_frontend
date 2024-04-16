@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     fontSize: {
-      sm: '0.8rem',
+      sm: '1rem',
       base: '1.125rem',
       xl: '1.25rem',
       '2xl': '2rem',
@@ -25,7 +25,14 @@ module.exports = {
         primaryColor: "#147B65",
         secondaryColor: "#555",
         thirdColor: "#000",
-        whiteColor: "#fff"
+        whiteColor: "#fff",
+        subColor: "#555",
+        borderButtonColor: "#9D9D9D",
+        bgLigthGrey: "#EAEAEA",
+        bgGray: "#F5F5F5"
+      },
+      padding: {
+        elementPadding : "5.62rem"
       }
     },
   },
