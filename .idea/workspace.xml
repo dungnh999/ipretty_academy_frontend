@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="450a6c13-b0a3-4757-bcd2-80c0c45fb048" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/add_on/background.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/logo/logo-header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locales/config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locales/en/translation.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/locales/vi/translation.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/AddOn.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Category.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Counter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Course.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/comcoma/comcoma.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/skill/skill.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/BreadCrumb.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/course/components/TitleCourse.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/course/views/Course.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/components/Blog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/components/Feedbacks.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/home/components/Skill.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/Router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/FooterLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/FooterLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/components/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/components/Banner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/home/views/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/views/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +53,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -72,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/admin/Tutorial/Academy/academy_v2/src/locales/vi",
+    "last_opened_file_path": "/Users/admin/Tutorial/Academy/academy_v2/src/views/course",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -92,6 +90,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/course" />
       <recent name="$PROJECT_DIR$/src/locales/vi" />
       <recent name="$PROJECT_DIR$/src/locales/en" />
       <recent name="$PROJECT_DIR$/src/assets/logo" />
@@ -123,6 +122,7 @@
       <workItem from="1712731626482" duration="4582000" />
       <workItem from="1712737335778" duration="1844000" />
       <workItem from="1713163219015" duration="636000" />
+      <workItem from="1713337122514" duration="27719000" />
     </task>
     <servers />
   </component>

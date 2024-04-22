@@ -50,7 +50,7 @@ const FooterLayout = (props) => {
                         <div className="menu-footer  mt-[2rem]">
                             <ul className="leading-[1.6875rem]">
                                 <li className="text-base font-medium text-subColor mb-[1rem]">
-                                    Địa chỉ : <span> 199 Lý chính tháng, phường Võ Thị Sáu quận 3 </span>
+                                    Địa chỉ : <span> 199 Lý chính thắng, phường Võ Thị Sáu quận 3 </span>
                                 </li>
                                 <li className="text-base font-medium text-subColor  mb-[1rem]">
                                     Số điện thoại :  +(84) 0123456789
@@ -97,7 +97,7 @@ const FooterLayout = (props) => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center pt-[2rem] mt-[5.62rem] border-t-2 border-borderButtonColor">
-                    <p>sdsdsdsdsdsdsdsdsdsdsdsdsdsd</p>
+                    <p>Copyright © 2024 Nguyễn Huy Dũng</p>
                 </div>
             </div>
         </div>

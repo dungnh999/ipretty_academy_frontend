@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import MainLayout from "academy/layouts/MainLayout/MainLayout";
 import Home from "academy/views/home/views/Home";
+import Course from "academy/views/course/views/Course";
 
 /**
  * Router Public
@@ -29,6 +30,7 @@ const AppRouter = () => {
         <>
             <Switch>
                 <PublicRouter exact path="/" component={Home}/>
+                <PublicRouter exact path="/course" component={Course}/>
             </Switch>
         </>
     )

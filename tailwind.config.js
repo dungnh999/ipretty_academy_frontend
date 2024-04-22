@@ -12,7 +12,7 @@ module.exports = {
       base: '1.125rem',
       xl: '1.25rem',
       '2xl': '2rem',
-      '3xl': '1.953rem',
+      '3xl': '2.25rem',
       '4xl': '3rem',
       '5xl': '3.052rem',
     },
@@ -29,7 +29,8 @@ module.exports = {
         subColor: "#555",
         borderButtonColor: "#9D9D9D",
         bgLigthGrey: "#EAEAEA",
-        bgGray: "#F5F5F5"
+        bgGray: "#F5F5F5",
+        borderGray:"#555555"
       },
       padding: {
         elementPadding : "5.62rem"

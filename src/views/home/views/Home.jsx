@@ -4,6 +4,9 @@ import Category from "academy/views/home/components/Category";
 import Course from "academy/views/home/components/Course";
 import AddOn from "academy/views/home/components/AddOn";
 import Counter from "academy/views/home/components/Counter";
+import Skill from "academy/views/home/components/Skill";
+import Feedbacks from "academy/views/home/components/Feedbacks";
+import Blog from "academy/views/home/components/Blog";
 
 const Home = (props) => {
     return (
@@ -15,6 +18,11 @@ const Home = (props) => {
                     <Course/>
                     <AddOn/>
                     <Counter/>
+                    <Skill/>
+                    <AddOn/>
+                    <Feedbacks/>
+                    <AddOn/>
+                    <Blog/>
                 </div>
             </div>
         </div>
