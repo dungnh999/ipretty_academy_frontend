@@ -6,5 +6,15 @@
       "blog" : "Bài viết",
       "category" : "Danh mục"
     }
+  },
+  "component" : {
+    "view" : "Xem",
+    "view_all" : "Xem tất cả"
+  },
+  "notification" : {
+    "title" : "Thông báo"
+  },
+  "cart" : {
+    "title" : "Giỏ hàng"
   }
 }

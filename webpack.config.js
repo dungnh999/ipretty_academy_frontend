@@ -68,6 +68,7 @@ module.exports = {
   //   ],
   // },
   devServer: {
+    allowedHosts: "all",
     static: {
       directory: path.resolve(__dirname, 'build'),
     },

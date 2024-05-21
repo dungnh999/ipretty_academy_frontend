@@ -1,11 +1,11 @@
 import Search from "assets/icons/search";
 import React from "react";
 
-const TitleCourse = (props) => {
+const TitleBlog = (props) => {
     return (
         <div className="title-all-course flex justify-between items-center">
             <div className="title-course">
-                <h1 className="text-3xl font-semibold capitalize">Tất cả khoá học</h1>
+                <h1 className="text-3xl font-semibold capitalize">Tất cả bài viết</h1>
             </div>
             <div className="box-search flex gap-[1.25rem] items-center">
                 <div className="relative text-gray-600 w-[16.875rem]">
@@ -34,4 +34,4 @@ const TitleCourse = (props) => {
     )
 };
 
-export default TitleCourse;
+export default TitleBlog;

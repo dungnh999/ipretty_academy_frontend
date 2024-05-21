@@ -5,21 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="450a6c13-b0a3-4757-bcd2-80c0c45fb048" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/comcoma/comcoma.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/skill/skill.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/BreadCrumb.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/course/components/TitleCourse.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/course/views/Course.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Blog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Feedbacks.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/home/components/Skill.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/cart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/previous.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/reply.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/start.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/momo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/thumb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/sidebarBlog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Cart.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/Notification.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header/navigation.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/FormComment.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/Pagination.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/LearnLayout/views/LearnLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/components/ContentBlog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/components/TagsBlog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/views/BlogDetail.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Cart/views/CartView.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/components/Login.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/components/Signup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/view/auth.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/blog/components/ListBlog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/blog/components/TitleBlog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/blog/views/Blog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/checkout/views/checkout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/contact/views/contact.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/detail/components/Sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/detail/components/TabsCourse.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/detail/components/banner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/detail/views/Detail.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/faqs/views/faqs.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/page/404.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/FooterLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/FooterLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/home/views/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/views/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/MainLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/MainLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/vi/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/vi/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/course/views/Course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/course/views/Course.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home/components/Course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/components/Course.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +73,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="developer" />
+                    <option name="lastUsedInstant" value="1713767582" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1713163258" />
+                    <option name="lastUsedInstant" value="1713767580" />
                   </RecentBranch>
                 </list>
               </option>
@@ -64,22 +100,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/admin/Tutorial/Academy/academy_v2/src/views/course",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/admin/Tutorial/Academy/academy_v2/src/assets/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -90,12 +126,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/icons" />
+      <recent name="$PROJECT_DIR$/src/assets/logo" />
+      <recent name="$PROJECT_DIR$/src/views" />
       <recent name="$PROJECT_DIR$/src/views/course" />
       <recent name="$PROJECT_DIR$/src/locales/vi" />
-      <recent name="$PROJECT_DIR$/src/locales/en" />
-      <recent name="$PROJECT_DIR$/src/assets/logo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/auth/view" />
       <recent name="$PROJECT_DIR$/src/css" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -122,7 +160,24 @@
       <workItem from="1712731626482" duration="4582000" />
       <workItem from="1712737335778" duration="1844000" />
       <workItem from="1713163219015" duration="636000" />
-      <workItem from="1713337122514" duration="27719000" />
+      <workItem from="1713337122514" duration="34110000" />
+      <workItem from="1713924467799" duration="13617000" />
+      <workItem from="1714313734675" duration="598000" />
+      <workItem from="1714356013746" duration="596000" />
+      <workItem from="1714441079315" duration="5000" />
+      <workItem from="1714635837372" duration="599000" />
+      <workItem from="1714636726966" duration="2311000" />
+      <workItem from="1714665164001" duration="12207000" />
+      <workItem from="1714710772320" duration="8998000" />
+      <workItem from="1714727099804" duration="5083000" />
+      <workItem from="1714732205765" duration="4081000" />
+      <workItem from="1714926189490" duration="22963000" />
+      <workItem from="1715047125445" duration="1707000" />
+      <workItem from="1715074560278" duration="1199000" />
+      <workItem from="1715150304986" duration="18532000" />
+      <workItem from="1715566622427" duration="8325000" />
+      <workItem from="1716171431624" duration="13629000" />
+      <workItem from="1716256843416" duration="5499000" />
     </task>
     <servers />
   </component>

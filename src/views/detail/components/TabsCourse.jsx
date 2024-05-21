@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-
+import start from 'academy/assets/icons/start'
+import start_full from 'academy/assets/icons/start_full'
+import reply from 'academy/assets/icons/reply'
+import previous from 'academy/assets/icons/previous'
+import next from 'academy/assets/icons/next'
+import Pagination from "academy/components/UI/Pagination";
 const TabsCourse = (props) => {
     const [currentTab, setCurrentTab] = useState(0);
     const tabs = [
@@ -15,7 +20,7 @@ const TabsCourse = (props) => {
                         <p>LearnPress is a comprehensive WordPress LMS Plugin for WordPress. This is one of the best WordPress LMS Plugins which can be used to easily create & sell courses online.</p>
                         <div className="list-lessons flex gap-[0.75rem] flex-col mt-[1.25rem]">
                             <div className='bg-whiteColor rounded-lg item-lessons'>
-                                <details className="group marker:content-['']">
+                                <details className="group marker:content-['']" open>
                                     <summary
                                         className="py-[1rem] px-[1.25rem] flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&amp;::-webkit-details-marker]:hidden">
                                         <div className='flex gap-[0.5rem]'>
@@ -535,36 +540,302 @@ const TabsCourse = (props) => {
         },
         {
             name: 'FAQs',
-            content: 'Nội dung của tab 4',
+            content: <div className='flex flex-col gap-[1.25rem]'>
+                        <div className="list-lessons flex gap-[0.75rem] flex-col">
+                            <div className='bg-whiteColor rounded-lg item-lessons'>
+                                <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]" open>
+                                    <summary
+                                        className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&amp;::-webkit-details-marker]:hidden">
+                                        <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+                                        <svg
+                                            className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 12H6"></path>
+                                            <path className="group-open:hidden" d="M12 6v12"></path>
+                                        </svg>
+                                    </summary>
+                                    <div className="mt-[1.25rem] text-base font-normal text-subColor">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                        <div className="list-lessons flex gap-[0.75rem] flex-col">
+                    <div className='bg-whiteColor rounded-lg item-lessons'>
+                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem] ">
+                            <summary
+                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&amp;::-webkit-details-marker]:hidden">
+                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+                                <svg
+                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 12H6"></path>
+                                    <path className="group-open:hidden" d="M12 6v12"></path>
+                                </svg>
+                            </summary>
+                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                        <div className="list-lessons flex gap-[0.75rem] flex-col">
+                            <div className='bg-whiteColor rounded-lg item-lessons'>
+                                <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem] ">
+                                    <summary
+                                        className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&amp;::-webkit-details-marker]:hidden">
+                                        <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+                                        <svg
+                                            className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 12H6"></path>
+                                            <path className="group-open:hidden" d="M12 6v12"></path>
+                                        </svg>
+                                    </summary>
+                                    <div className="mt-[1.25rem] text-base font-normal text-subColor">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                        <div className="list-lessons flex gap-[0.75rem] flex-col">
+                    <div className='bg-whiteColor rounded-lg item-lessons'>
+                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem] ">
+                            <summary
+                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&amp;::-webkit-details-marker]:hidden">
+                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+                                <svg
+                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 12H6"></path>
+                                    <path className="group-open:hidden" d="M12 6v12"></path>
+                                </svg>
+                            </summary>
+                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                     </div>,
         },
         {
             name: 'Reviews',
-            content: 'Nội dung của tab 5',
+            content: <div className="flex gap-[1.25rem] flex-col">
+                        <div>
+                            <p className='font-semibold capitalize text-xl'>comments</p>
+                        </div>
+                        <div className='flex gap-[0.75rem] items-center'>
+                            <p className='text-3xl font-semibold'>5.0</p>
+                            <div className='flex flex-col'>
+                                <div className='flex gap-[0.25rem]'>
+                                    <img src={start_full} className='h-[1.25rem] w-[1.25rem]'/>
+                                    <img src={start_full} className='h-[1.25rem] w-[1.25rem]'/>
+                                    <img src={start_full} className='h-[1.25rem] w-[1.25rem]'/>
+                                    <img src={start_full} className='h-[1.25rem] w-[1.25rem]'/>
+                                    <img src={start_full} className='h-[1.25rem] w-[1.25rem]'/>
+                                </div>
+                                <p className='text-subColor font-normal text-sm'>based on 146,951 ratings</p>
+                            </div>
+                        </div>
+                        <div className='flex flex-col gap-[1rem]'>
+                            <div className='flex gap-[1.25rem] items-center'>
+                                <div className='flex gap-[0.5rem] items-center'>
+                                    <div className='flex gap-[0.25rem]'>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                    </div>
+                                    <div>90%</div>
+                                </div>
+                                <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
+                                    <div className="bg-yellowColor h-[0.54769rem]" style={{ width: '90%' }}></div>
+                                </div>
+                            </div>
+                            <div className='flex gap-[1.25rem] items-center'>
+                                <div className='flex gap-[0.5rem] items-center'>
+                                    <div className='flex gap-[0.25rem]'>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                    </div>
+                                    <div>50%</div>
+                                </div>
+                                <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
+                                    <div className="bg-yellowColor h-[0.54769rem]" style={{ width: '50%' }}></div>
+                                </div>
+                            </div>
+                            <div className='flex gap-[1.25rem] items-center'>
+                                <div className='flex gap-[0.5rem] items-center'>
+                                    <div className='flex gap-[0.25rem]'>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                    </div>
+                                    <div>20%</div>
+                                </div>
+                                <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
+                                    <div className="bg-yellowColor h-[0.54769rem]" style={{ width: '20%' }}></div>
+                                </div>
+                            </div>
+                            <div className='flex gap-[1.25rem] items-center'>
+                                <div className='flex gap-[0.5rem] items-center'>
+                                    <div className='flex gap-[0.25rem]'>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start_full} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                    </div>
+                                    <div>10%</div>
+                                </div>
+                                <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
+                                    <div className="bg-yellowColor h-[0.54769rem]" style={{ width: '10%' }}></div>
+                                </div>
+                            </div>
+                            <div className='flex gap-[1.25rem] items-center'>
+                                <div className='flex gap-[0.5rem] items-center'>
+                                    <div className='flex gap-[0.25rem]'>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                        <img src={start} className='h-[1rem] w-[1rem]'/>
+                                    </div>
+                                    <div>90%</div>
+                                </div>
+                                <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
+                                    <div className="bg-yellowColor h-[0.54769rem]" style={{ width: '45%' }}></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='list-comment '>
+                            <div className='flex flex-col gap-[1.25rem]'>
+                                <div className='flex gap-[1.25rem] border-t pt-[1.25rem]'>
+                                    <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full'>
+                                        <img src="https://www.figma.com/file/hON9ZENqGZHJ6UUl8FSRxR/EduPress---UI-Kit-for-Education-%26-Online-Learning-(Community)?type=design&node-id=1-723&mode=dev" alt=""/>
+                                    </div>
+                                    <div className='flex flex-1 flex-col gap-[0.5rem]'>
+                                        <div className='flex-1'>
+                                            <div className='flex justify-between'>
+                                                <h1 className='text-sm font-semibold'>Laura Hipster</h1>
+                                                <p className='text-sm font-normal text-subColor'>October 03, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className='text-base text-subColor font-normal'>
+                                                Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.
+                                            </p>
+                                        </div>
+                                        <div className='flex gap-[0.5rem] items-center'>
+                                            <img src={reply} alt='Lỗi ảnh' />
+                                            <span className='text-sm font-normal'>Reply</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='flex gap-[1.25rem] border-t pt-[1.25rem]'>
+                                    <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full'>
+                                        <img src="https://www.figma.com/file/hON9ZENqGZHJ6UUl8FSRxR/EduPress---UI-Kit-for-Education-%26-Online-Learning-(Community)?type=design&node-id=1-723&mode=dev" alt=""/>
+                                    </div>
+                                    <div className='flex flex-1 flex-col gap-[0.5rem]'>
+                                        <div className='flex-1'>
+                                            <div className='flex justify-between'>
+                                                <h1 className='text-sm font-semibold'>Laura Hipster</h1>
+                                                <p className='text-sm font-normal text-subColor'>October 03, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className='text-base text-subColor font-normal'>
+                                                Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.
+                                            </p>
+                                        </div>
+                                        <div className='flex gap-[0.5rem] items-center'>
+                                            <img src={reply} alt='Lỗi ảnh' />
+                                            <span className='text-sm font-normal'>Reply</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='flex gap-[1.25rem] border-t pt-[1.25rem]'>
+                                    <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full'>
+                                        <img src="https://www.figma.com/file/hON9ZENqGZHJ6UUl8FSRxR/EduPress---UI-Kit-for-Education-%26-Online-Learning-(Community)?type=design&node-id=1-723&mode=dev" alt=""/>
+                                    </div>
+                                    <div className='flex flex-1 flex-col gap-[0.5rem]'>
+                                        <div className='flex-1'>
+                                            <div className='flex justify-between'>
+                                                <h1 className='text-sm font-semibold'>Laura Hipster</h1>
+                                                <p className='text-sm font-normal text-subColor'>October 03, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className='text-base text-subColor font-normal'>
+                                                Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.
+                                            </p>
+                                        </div>
+                                        <div className='flex gap-[0.5rem] items-center'>
+                                            <img src={reply} alt='Lỗi ảnh' />
+                                            <span className='text-sm font-normal'>Reply</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='flex gap-[1.25rem] border-t pt-[1.25rem]'>
+                                    <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full'>
+                                        <img src="https://www.figma.com/file/hON9ZENqGZHJ6UUl8FSRxR/EduPress---UI-Kit-for-Education-%26-Online-Learning-(Community)?type=design&node-id=1-723&mode=dev" alt=""/>
+                                    </div>
+                                    <div className='flex flex-1 flex-col gap-[0.5rem]'>
+                                        <div className='flex-1'>
+                                            <div className='flex justify-between'>
+                                                <h1 className='text-sm font-semibold'>Laura Hipster</h1>
+                                                <p className='text-sm font-normal text-subColor'>October 03, 2022</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p className='text-base text-subColor font-normal'>
+                                                Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.
+                                            </p>
+                                        </div>
+                                        <div className='flex gap-[0.5rem] items-center'>
+                                            <img src={reply} alt='Lỗi ảnh' />
+                                            <span className='text-sm font-normal'>Reply</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <Pagination/>
+                        </div>
+                    </div>,
         },
     ];
 
     return (
-        <div className="flex flex-col pr-[27.5rem]">
-            <div className="w-[53.125rem]">
-                {/* Tạo các tab */}
-                <div className="flex border-gray-200 overflow-hidden self-stretch rounded-t-xl border">
-                    {tabs.map((tab, index) => (
-                        <button
-                            key={index}
-                            className={`py-[1.25rem] px-[1.88rem] text-base font-semibold flex-1 flex-shrink-0 basis-0 border-r last:border-r-0 ${
-                                currentTab === index ? 'bg-bgGray text-primaryColor' : ''
-                            }`}
-                            onClick={() => setCurrentTab(index)}
-                        >
-                            {tab.name}
-                        </button>
-                    ))}
-                </div>
+        <div className="flex flex-col">
+            {/* Tạo các tab */}
+            <div className="flex border-gray-200 overflow-hidden self-stretch rounded-t-xl border">
+                {tabs.map((tab, index) => (
+                    <button
+                        key={index}
+                        className={`py-[1.25rem] px-[1.88rem] text-base font-semibold flex-1 flex-shrink-0 basis-0 border-r last:border-r-0 ${
+                            currentTab === index ? 'bg-bgGray text-primaryColor' : ''
+                        }`}
+                        onClick={() => setCurrentTab(index)}
+                    >
+                        {tab.name}
+                    </button>
+                ))}
+            </div>
 
-                {/* Hiển thị nội dung của tab hiện tại */}
-                <div className="p-[1.88rem] bg-bgGray rounded-b-xl text-base">
-                    {tabs[currentTab].content}
-                </div>
+            {/* Hiển thị nội dung của tab hiện tại */}
+            <div className="p-[1.88rem] bg-bgGray rounded-b-xl text-base">
+                {tabs[currentTab].content}
             </div>
         </div>
     )

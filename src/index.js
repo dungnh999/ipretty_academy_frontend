@@ -2,6 +2,7 @@ import i18n from 'academy/locales/config/index'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'academy/css/index.css';
+import 'flowbite'
 import Router from 'academy/Router/Router';
 import { I18nextProvider } from 'react-i18next';
 const App = (Router);
@@ -9,8 +10,8 @@ const App = (Router);
 ReactDOM.render(
     <>
         <I18nextProvider i18n={i18n}>
-            <App/>,
-        </I18nextProvider>;
+            <App/>
+        </I18nextProvider>
     </>,
     document.querySelector('#root')
 );
