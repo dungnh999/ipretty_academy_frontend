@@ -16,5 +16,12 @@
   },
   "cart" : {
     "title" : "Giỏ hàng"
+  },
+  "auth" : {
+    "login" : "Đăng nhập",
+    "signup" : "Đăng ký",
+    "password" : "Mật khẩu",
+    "remember" : "Nhớ đăng nhập",
+    "forgot" : "Quên mật khẩu"
   }
 }

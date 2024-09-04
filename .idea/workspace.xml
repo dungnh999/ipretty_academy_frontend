@@ -5,50 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="450a6c13-b0a3-4757-bcd2-80c0c45fb048" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/cart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/previous.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/reply.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/start.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/logo/momo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/thumb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/sidebarBlog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Cart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Notification.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/navigation.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/FormComment.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/Pagination.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/layouts/LearnLayout/views/LearnLayout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/components/ContentBlog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/components/TagsBlog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/BlogDetail/views/BlogDetail.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/Cart/views/CartView.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/auth/components/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/auth/components/Signup.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/auth/view/auth.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/blog/components/ListBlog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/blog/components/TitleBlog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/blog/views/Blog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/checkout/views/checkout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/contact/views/contact.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/detail/components/Sidebar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/detail/components/TabsCourse.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/detail/components/banner.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/detail/views/Detail.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/faqs/views/faqs.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/page/404.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Router/PrivateRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Router/PublicRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/Image/error-default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/css/swiperCustom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/empty.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/play.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo/vnpay.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Search.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Image/ImageBannerWithFallback.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/ModalTemplate.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constant/Cart/CartAction.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constant/Course/DetailCourseTypeAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/Authcontext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/CartContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/DetailCourseContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/LearnLayout/LearnLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/AuthReducer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/CartReducer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reducers/DetailCourseReducer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/AuthService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/CourseService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/OrderService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/PaymentService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/TransactionService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/constances.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/CartStore.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/view/Forgot.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/checkout/views/PaymentSuccessful.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/detail/components/ModalReview.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/Content.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/ModalFastForwarding.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/Sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/TabContent.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/components/VideoPlayer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/learn/views/LearnView.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Notification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Notification.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/BreadCrumb.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/BreadCrumb.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/LearnLayout/views/LearnLayout.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/HeaderLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/MainLayout/MainLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/MainLayout/MainLayout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/vi/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/vi/translation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/course/components/ListCourse.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/course/views/Course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/course/views/Course.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Cart/views/CartView.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Cart/views/CartView.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/auth/components/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/components/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/checkout/views/checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/checkout/views/checkout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/detail/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/detail/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/detail/components/TabsCourse.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/detail/components/TabsCourse.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/detail/components/banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/detail/components/banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/detail/views/Detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/detail/views/Detail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/faqs/views/faqs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/faqs/views/faqs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home/components/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/components/Banner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/home/components/Course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home/components/Course.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
@@ -74,11 +94,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="developer" />
-                    <option name="lastUsedInstant" value="1713767582" />
+                    <option name="lastUsedInstant" value="1716307152" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1713767580" />
+                    <option name="lastUsedInstant" value="1716307102" />
                   </RecentBranch>
                 </list>
               </option>
@@ -100,22 +120,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/admin/Tutorial/Academy/academy_v2/src/assets/icons&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2024.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "developer",
+    "last_opened_file_path": "/Users/admin/Tutorial/Academy/academy_v2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "web-ide.project.structure",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -126,13 +147,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
-      <recent name="$PROJECT_DIR$/src/assets/logo" />
-      <recent name="$PROJECT_DIR$/src/views" />
-      <recent name="$PROJECT_DIR$/src/views/course" />
-      <recent name="$PROJECT_DIR$/src/locales/vi" />
+      <recent name="$PROJECT_DIR$/src/service" />
+      <recent name="$PROJECT_DIR$/src/assets/Image" />
+      <recent name="$PROJECT_DIR$/src/helpers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/layouts/LearnLayout" />
       <recent name="$PROJECT_DIR$/src/views/auth/view" />
       <recent name="$PROJECT_DIR$/src/css" />
       <recent name="$PROJECT_DIR$/src" />
@@ -178,10 +200,71 @@
       <workItem from="1715566622427" duration="8325000" />
       <workItem from="1716171431624" duration="13629000" />
       <workItem from="1716256843416" duration="5499000" />
+      <workItem from="1716306982074" duration="2789000" />
+      <workItem from="1716435785548" duration="5015000" />
+      <workItem from="1716440921836" duration="9234000" />
+      <workItem from="1716475184705" duration="22543000" />
+      <workItem from="1716560265652" duration="84327000" />
+      <workItem from="1716915815425" duration="12699000" />
+      <workItem from="1717061777466" duration="6132000" />
+      <workItem from="1717383608958" duration="598000" />
+      <workItem from="1717508278918" duration="597000" />
+      <workItem from="1717658882893" duration="4728000" />
+      <workItem from="1717871916041" duration="46689000" />
+      <workItem from="1718091629734" duration="2477000" />
+      <workItem from="1718161769457" duration="17073000" />
+      <workItem from="1718288459699" duration="719000" />
+      <workItem from="1718307369977" duration="599000" />
+      <workItem from="1718612133771" duration="11072000" />
+      <workItem from="1718762747117" duration="913000" />
+      <workItem from="1718776387771" duration="599000" />
+      <workItem from="1718777152925" duration="2420000" />
+      <workItem from="1718851336186" duration="1805000" />
+      <workItem from="1718945125989" duration="599000" />
+      <workItem from="1719288686007" duration="8418000" />
+      <workItem from="1720059577072" duration="366000" />
+      <workItem from="1720059987369" duration="7377000" />
+      <workItem from="1720417185821" duration="18111000" />
+      <workItem from="1720580777395" duration="260000" />
+      <workItem from="1720581141186" duration="164000" />
+      <workItem from="1724351486340" duration="1856000" />
+      <workItem from="1724605167716" duration="599000" />
+      <workItem from="1724639326004" duration="12081000" />
+      <workItem from="1724692212360" duration="15677000" />
+      <workItem from="1724811319650" duration="15741000" />
+      <workItem from="1724897485748" duration="4820000" />
+      <workItem from="1724983702866" duration="13970000" />
+      <workItem from="1725416197798" duration="10401000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/reducers/DetailCourseReducer.jsx</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

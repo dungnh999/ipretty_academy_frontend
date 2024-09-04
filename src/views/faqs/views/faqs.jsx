@@ -1,5 +1,6 @@
 import React from 'react';
 import BreadCrumb from "academy/components/UI/BreadCrumb";
+import {useDetailCourseContext} from "academy/context/DetailCourseContext";
 
 const Faqs = (props) => {
     return (

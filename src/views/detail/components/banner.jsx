@@ -1,18 +1,20 @@
 import React from 'react';
+import {useDetailCourseContext} from "academy/context/DetailCourseContext";
 
 const Banner = (props) => {
+    const {dataCourse} = useDetailCourseContext();
     return(
         <div className="bg-black text-white py-[3.12rem] px-[0.62rem]">
             <div className="container max-w-screen-xl mx-auto gap-[3.75rem] flex flex-col">
                 <div className="flex flex-col gap-[1.25rem] pr-[27.5rem]">
                     <div className="heading-name-catgory flex gap-[1.25rem] items-center">
                         <div className="px-[0.75rem] py-[0.5rem] bg-gray-600 font-medium text-sm capitalize rounded-[0.5rem]">
-                            Photography
+                            { dataCourse['courseInfo']['course_type'] }
                         </div>
-                        <div className="text-base font-normal text-white">by Determined-Poitras</div>
+                        <div className="text-base font-normal text-white">by {dataCourse['courseInfo']['teacher_name']}</div>
                     </div>
                     <div className="title-detail-course">
-                        <h1 className="text-[2.25rem]">The Ultimate Guide to the best WordPress LMS Plugin</h1>
+                        <h1 className="text-[2.25rem]">{dataCourse['courseInfo']['name']}</h1>
                     </div>
                     <div className="flex gap-[1.5rem]">
                         <div className="item-detail flex justify-center items-center">

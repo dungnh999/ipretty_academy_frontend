@@ -1,18 +1,63 @@
-import React from 'react';
+import React, {useState, useContext , useEffect} from 'react';
 import BreadCrumb from "academy/components/UI/BreadCrumb";
+import { toast } from "react-toastify";
+import AuthService from "academy/service/AuthService"
+import {getTokens, setTokens} from "academy/helpers/utils"
+import {useTranslation} from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from 'academy/context/Authcontext';
 
 const Login = (props) => {
+    const {t} = useTranslation();
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isShow, setIsShow] = useState("");
+    const { state, dispatch } = useContext(AuthContext);
+
+
+    useEffect(() => {
+        let user = getTokens();
+        if(user.authToken){
+            navigate('/')
+        }
+    },[])
+    const handleLogin = async () => {
+        AuthService.login(responeseLogin, errorLogin ,email,password)
+    }
+
+    function responeseLogin(res) {
+        dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.data });
+        toast.success('Đăng nhập thành công');
+        setTokens(res.data.data.accessToken, res.data.data.user)
+        navigate('/')
+    }
+
+    function errorLogin(){
+        if(!email || !password){
+            toast.warn('Bạn chưa nhập tài khoản hoặc mật khẩu !!!')
+            return;
+        }
+    }
+
     return (
         <div className='p-[1.88rem] border rounded-xl'>
-            <h1 className='text-2xl text-black font-semibold mb-[1.88rem]'>Login</h1>
+            <h1 className='text-2xl text-black font-semibold mb-[1.88rem]'>{ t('auth.login') }</h1>
             <div className='flex gap-[1.25rem] flex-col'>
-                <input type="text" id="first_name"
+                <input type="text"
+                       id="email-login"
                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full px-[1rem] py-[0.62rem] dark:placeholder-gray-400"
-                       placeholder="Email or username*" required/>
+                       placeholder="Email or username*"
+                       onChange={(event) => setEmail(event.target.value)}
+                />
                 <div className="relative w-full">
-                    <input type="text" id="voice-search"
+                    <input type="text"
+                           id="password-login"
                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-[1rem] py-[0.62rem]"
-                           placeholder="Password*" required/>
+                           type='password'
+                           placeholder={ t('auth.password') }
+                           onChange={(event) => setPassword(event.target.value)}
+                    />
                     <button type="button" className="absolute inset-y-0 end-0 flex items-center pe-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <g clip-path="url(#clip0_2480_4545)">
@@ -25,9 +70,12 @@ const Login = (props) => {
                     <input id="default-checkbox" type="checkbox" value=""
                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "/>
                         <label htmlFor="default-checkbox"
-                               className="ms-2 text-sm font-medium text-base font-normal">Remember me</label>
+                               className="ms-2 text-sm font-medium text-base font-normal">{ t('auth.remember')}</label>
                 </div>
-                <button className='w-full bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full text-base font-medium text-white'>Login</button>
+                <button
+                    className='w-full bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full text-base font-medium text-white'
+                    onClick={() => handleLogin()}
+                    > { t('auth.login') }</button>
                 <span className='text-base font-normal'>Lost your password?</span>
             </div>
         </div>

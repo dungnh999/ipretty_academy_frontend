@@ -35,6 +35,18 @@ module.exports = {
         redColor: "#F51A1A",
         yellowColor: "#F6B40A"
       },
+      inset: {
+        'auto': 'auto'
+      },
+      minHeight: {
+        'min-height-modal': 'calc(100% - 1.75rem * 2)',
+      },
+      height: {
+        'min-height-modal': 'calc(100% - 1.75rem * 2)',
+      },
+      width: {
+        'width-tab-course' : 'calc(100% - 25.625rem)',
+      },
       padding: {
         elementPadding : "5.62rem"
       },

@@ -1,6 +1,8 @@
 import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom"
-import MainLayout from "academy/layouts/MainLayout/MainLayout";
+import {BrowserRouter as Router, Routes, Route, Outlet, Link} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import CartStore from "academy/store/CartStore";
+
 import Home from "academy/views/home/views/Home";
 import Course from "academy/views/course/views/Course";
 import Detail from "academy/views/detail/views/Detail";
@@ -9,74 +11,81 @@ import Auth from "academy/views/auth/view/auth";
 import BlogDetail from "academy/views/BlogDetail/views/BlogDetail";
 import Error404 from "academy/views/page/404";
 import Faqs from "academy/views/faqs/views/faqs";
-import LearnLayout from "academy/layouts/LearnLayout/views/LearnLayout";
+import LearnLayout from "academy/layouts/LearnLayout/LearnLayout";
 import Contact from "academy/views/contact/views/contact";
 import Checkout from "academy/views/checkout/views/checkout";
 import CartView from "academy/views/Cart/views/CartView";
+import Forgot from "academy/views/auth/view/Forgot";
+import PublicRouter from "academy/Router/PublicRouter";
+import MainLayout from "academy/layouts/MainLayout/MainLayout";
+import {AuthProvider} from "academy/context/Authcontext";
+import DetailCourseProvider from "academy/context/DetailCourseContext";
+import PaymentSuccessful from "academy/views/checkout/views/PaymentSuccessful";
+import LearnView from "academy/views/learn/views/LearnView";
 
 /**
  * Router Public
  * */
-const PublicRouter = ({ component: Component, isLoggerIn, ...rest }) => (
-    <Route
-        {...rest}
-        render = {(props) =>
-            (
+
+const LearnLayoutMain = ({component: Component, isLoggerIn, ...rest}) => (<>
+    <LearnLayout>
+        <main>
+            <Outlet/>
+        </main>
+    </LearnLayout>
+</>)
+
+const HomeLayoutMain = ({component: Component, isLoggerIn, ...rest}) => (<>
+        <Provider store={CartStore}>
+            <AuthProvider>
                 <MainLayout>
                     <main>
-                        <Component {...props} />
+                        <Outlet/>
                     </main>
                 </MainLayout>
-            )
-        }
-    />
+            </AuthProvider>
+        </Provider>
+    </>
 )
 
-const LearnRouter = ({ component: Component, isLoggerIn, ...rest }) => (
-    <Route
-        {...rest}
-        render = {(props) =>
-            (
-                <LearnLayout>
-                    <main>
-                        <Component {...props} />
-                    </main>
-                </LearnLayout>
-            )
-        }
-    />
-)
 
 /**
  * Router Root
  * */
 const AppRouter = () => {
-    return (
-        <>
-            <Switch>
-                <PublicRouter exact path="/" component={Home}/>
-                <PublicRouter exact path="/course" component={Course}/>
-                <PublicRouter exact path="/detail" component={Detail}/>
-                <PublicRouter exact path="/blog" component={Blog}/>
-                <PublicRouter exact path="/login" component={Auth}/>
-                <PublicRouter exact path="/detail-blogs" component={BlogDetail}/>
-                <PublicRouter exact path="/error" component={Error404}/>
-                <PublicRouter exact path="/faqs" component={Faqs}/>
-                <PublicRouter exact path="/contact" component={Contact}/>
-                <PublicRouter exact path="/checkout" component={Checkout}/>
-                <PublicRouter exact path="/cart" component={CartView}/>
-                <LearnRouter exact path="/learn" component={Faqs}/>
-            </Switch>
-        </>
-    )
+    return (<>
+        <PublicRouter path="/" element={<Home/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/blog/1" element={<Blog/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/login" element={<Auth/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/forgot" element={<Forgot/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/detail-blogs" element={<BlogDetail/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/error" element={<Error404/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/faqs" element={<Faqs/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/contact" element={<Contact/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/checkout" element={<Checkout/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/vnpay/callback" element={<PaymentSuccessful/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/cart" element={<CartView/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/course" element={<Course/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/course/:slug" element={<Detail/>} template={<HomeLayoutMain/>}/>
+        {/*<PublicRouter path="/*" element={<Error404/>} template={<HomeLayoutMain/>}> </PublicRouter>*/}
+
+        <Routes>
+            <Route path='/course/:slug/learn/lecture/' element={<LearnView/>}>
+                <Route exact path=":id" element={<LearnView/>}></Route>
+            </Route>
+        </Routes>
+
+    </>)
 }
 
-const Router = () => {
+const RouterApp = () => {
     return (
-        <BrowserRouter>
-            <AppRouter/>
-        </BrowserRouter>
+        <DetailCourseProvider>
+            <Router>
+                <AppRouter/>
+            </Router>
+        </DetailCourseProvider>
     );
 }
 
-export default Router;
+export default RouterApp;

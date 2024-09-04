@@ -1,5 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require("dotenv-webpack");
+
+require("dotenv").config();
+
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -72,6 +76,9 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, 'build'),
     },
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
     port: 3000,
     open: true,
     hot: true,
@@ -80,7 +87,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.svg', '.jpg'],
+    extensions: ['.js', '.jsx', '.json', '.svg', '.jpg', '.png'],
     fallback: {
       fs: false,
     },
@@ -95,6 +102,10 @@ module.exports = {
         hash: true,
         template: "./public/index.html",
         inject: true
-      })
+      }),
+      new Dotenv({
+        path: './.env',
+        safe: true,
+      }),
   ]
 }

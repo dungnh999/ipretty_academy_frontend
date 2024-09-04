@@ -2,15 +2,22 @@ import i18n from 'academy/locales/config/index'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'academy/css/index.css';
+import 'react-dropdown/style.css';
 import 'flowbite'
-import Router from 'academy/Router/Router';
+import RouterApp from 'academy/Router/Router';
 import { I18nextProvider } from 'react-i18next';
-const App = (Router);
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer} from 'react-toastify';
 
+const App = (RouterApp);
 ReactDOM.render(
     <>
         <I18nextProvider i18n={i18n}>
             <App/>
+            <ToastContainer
+                stacked="true"
+                autoClose="2000"
+            />
         </I18nextProvider>
     </>,
     document.querySelector('#root')
