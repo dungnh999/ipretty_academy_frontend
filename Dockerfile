@@ -26,4 +26,4 @@ COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 5000
 
 # Chạy Nginx trong chế độ nền
-CMD ["npm", "run", "start"]
+CMD ["yarn", "run", "start"]
