@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Mở cổng 80 để Nginx có thể phục vụ ứng dụng
-EXPOSE 80
+EXPOSE 5000
 
 # Chạy Nginx trong chế độ nền
 CMD ["nginx", "-g", "daemon off;"]
