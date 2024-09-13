@@ -11,16 +11,20 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 # Sao chép toàn bộ mã nguồn vào container
-COPY . .
+COPY . ./
 
 # Build ứng dụng React bằng Yarn và Webpack
 RUN yarn build
 
-# Cài đặt serve để chạy ứng dụng trong môi trường production
-RUN yarn global add serve
+FROM nginx:stable-alpine
 
-# Mở cổng 3000
-EXPOSE 3000
+WORKDIR /usr/share/nginx/html
+
+COPY --from=build /var/www/frontend/build /usr/share/nginx/html
+
+# # Mở cổng 3000
+# EXPOSE 3000
 
 # Chạy ứng dụng với serve
-CMD ["serve", "-s", "build"]
+CMD ["nginx", "-g", "daemon off;"]
+
