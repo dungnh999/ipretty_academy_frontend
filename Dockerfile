@@ -1,29 +1,26 @@
-# Chọn hình ảnh Node.js làm base image
+# Sử dụng Node.js image
 FROM node:18 AS build
 
-# Tạo thư mục làm việc
-WORKDIR /app
+# Đặt thư mục làm việc trong container
+WORKDIR /var/www/frontend
 
-# Sao chép package.json và yarn.lock vào thư mục làm việc
+# Sao chép file package.json, yarn.lock và cài đặt dependencies
 COPY package.json yarn.lock ./
 
-# Cài đặt các phụ thuộc với Yarn
+# Sử dụng Yarn để cài đặt các dependencies
 RUN yarn install
 
-# Sao chép toàn bộ mã nguồn vào thư mục làm việc
+# Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-# Xây dựng ứng dụng React
+# Build ứng dụng React bằng Yarn và Webpack
 RUN yarn build
 
-# Sử dụng Nginx để phục vụ ứng dụng React
-FROM nginx:alpine
+# Cài đặt serve để chạy ứng dụng trong môi trường production
+RUN yarn global add serve
 
-# Sao chép ứng dụng React đã build từ build stage vào thư mục của Nginx
-COPY --from=build /app/build /usr/share/nginx/html
+# Mở cổng 3000
+EXPOSE 3000
 
-# Mở cổng 80 để Nginx có thể phục vụ ứng dụng
-EXPOSE 5000
-
-# Chạy Nginx trong chế độ nền
-CMD ["nginx", "-g", "daemon off;"]
+# Chạy ứng dụng với serve
+CMD ["serve", "-s", "build"]
