@@ -69,6 +69,7 @@ const Sidebar = (props) => {
                         </div>
                         <div className='btn-start w-full'>
                             <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={joinCourse}>Tham gia</button>
+                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>
                             <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>
                             {/* {
                                 dataCourse['courseInfo']['is_register']
