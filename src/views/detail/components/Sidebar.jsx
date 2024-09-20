@@ -36,7 +36,7 @@ const Sidebar = (props) => {
     }
 
     function handleResponeseCheckJoin(res){
-        // navigate(`/course/${slug}/learn/lecture/${dataCourse['firstLesson']['lesson_id']}`);
+        navigate(`/course/${slug}/learn/lecture/${dataCourse['firstLesson']['lesson_id']}`);
     }
 
     function handleErrorCheckJoin(e){
@@ -68,13 +68,15 @@ const Sidebar = (props) => {
 
                         </div>
                         <div className='btn-start w-full'>
-                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={joinCourse}>Tham gia</button>
-                            {/*{dataCourse['courseInfo']['is_register']*/}
-                            {/*    ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={joinCourse}>Tham gia</button>*/}
-                            {/*    : (items.some(obj => obj.course_id === dataCourse['courseInfo']['course_id']))*/}
-                            {/*        ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>*/}
-                            {/*        : <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>*/}
-                            {/*}*/}
+                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={joinCourse}>Tham gia</button>
+                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>
+                            {/* {
+                                dataCourse['courseInfo']['is_register']
+                               ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={joinCourse}>Tham gia</button>
+                               : (items.some(obj => obj.course_id === dataCourse['courseInfo']['course_id']))
+                                   ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>
+                                   : <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>
+                            } */}
                         </div>
                     </div>
                 </div>
