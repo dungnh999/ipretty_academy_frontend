@@ -36,7 +36,7 @@ axiosCustom.interceptors.response.use(function (response) {
         console.log(error.request);
     } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('Er');
+        console.log(error);
     }
 
     return res;

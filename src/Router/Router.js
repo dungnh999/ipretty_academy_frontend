@@ -22,6 +22,7 @@ import {AuthProvider} from "academy/context/Authcontext";
 import DetailCourseProvider from "academy/context/DetailCourseContext";
 import PaymentSuccessful from "academy/views/checkout/views/PaymentSuccessful";
 import LearnView from "academy/views/learn/views/LearnView";
+import Verify from "academy/views/auth/view/Verify";
 
 /**
  * Router Public
@@ -67,6 +68,7 @@ const AppRouter = () => {
         <PublicRouter path="/cart" element={<CartView/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/course" element={<Course/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/course/:slug" element={<Detail/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/signup/verify/:id/:token" element={<Verify/>} template={<HomeLayoutMain/>}/>
         {/*<PublicRouter path="/*" element={<Error404/>} template={<HomeLayoutMain/>}> </PublicRouter>*/}
 
         <Routes>

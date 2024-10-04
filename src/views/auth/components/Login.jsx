@@ -22,20 +22,41 @@ const Login = (props) => {
             navigate('/')
         }
     },[])
+
     const handleLogin = async () => {
+        if(!email || !password){
+            toast.warn('Tài khoản mật khẩu không được để trống')
+            return;
+        }
+
+        if(!validateEmail(email)){
+            toast.warn('Email không hợp lệ !!!')
+            return;
+        }
+
         AuthService.login(responeseLogin, errorLogin ,email,password)
     }
 
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Biểu thức chính quy để kiểm tra email
+        return re.test(String(email).toLowerCase());
+    };
+
     function responeseLogin(res) {
-        dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.data });
-        toast.success('Đăng nhập thành công');
-        setTokens(res.data.data.accessToken, res.data.data.user)
-        navigate('/')
+        if(res.data.status === 200){
+            dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.data });
+            toast.success('Đăng nhập thành công');
+            setTokens(res.data.data.accessToken, res.data.data.user)
+            navigate('/')
+        }else {
+            toast.warn(res.data.message);
+        }
+
     }
 
-    function errorLogin(){
+    function errorLogin(err){
         if(!email || !password){
-            toast.warn('Bạn chưa nhập tài khoản hoặc mật khẩu !!!')
+            toast.error(err)
             return;
         }
     }
@@ -76,7 +97,7 @@ const Login = (props) => {
                     className='w-full bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full text-base font-medium text-white'
                     onClick={() => handleLogin()}
                     > { t('auth.login') }</button>
-                <span className='text-base font-normal'>Lost your password?</span>
+                {/*<span className='text-base font-normal'>Lost your password?</span>*/}
             </div>
         </div>
     )

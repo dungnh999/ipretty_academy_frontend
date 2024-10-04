@@ -20,6 +20,7 @@ const Detail = (props) => {
 
 
     function handleResponeseDetailCourse(res){
+        console.log(res);
         const courseData = res.data.data;
         updateDataDetailCourse(courseData);
     }
@@ -31,7 +32,6 @@ const Detail = (props) => {
 
     return(
         <div>
-            <BreadCrumb/>
             <Banner/>
             <div className="container max-w-screen-xl mx-auto gap-[3.75rem] flex flex-col mt-[3.12rem] relative">
                 <div className='flex flex-row gap-[30px]'>

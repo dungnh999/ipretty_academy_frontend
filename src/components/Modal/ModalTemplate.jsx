@@ -59,7 +59,7 @@ const ModalTemplate = (props) => {
                 outLine: 'none',
             }}
             overlayClassName={{
-                base: 'fixed inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300',
+                base: 'fixed inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 z-[99]',
                 afterOpen: 'opacity-100',
                 beforeClose: 'opacity-0',
             }}

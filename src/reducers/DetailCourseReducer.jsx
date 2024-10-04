@@ -56,8 +56,8 @@ export const DetailCourseReducer = (state,  action) => {
                 is_register: courseData.is_register,
                 number_course_lesson: courseData.number_course_lesson ? courseData.number_course_lesson : 0,
                 percent_done: courseData.percent_done ? courseData.percent_done : 0,
-                number_learning: courseData.number_learning ? courseData.number_learning : 0
-
+                number_learning: courseData.number_learning ? courseData.number_learning : 0,
+                updated_at: courseData.updated_at
             };
             const learningProcess = courseData.learningProcess;
             const urlRedirectPage = [

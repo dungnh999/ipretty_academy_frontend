@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require("dotenv-webpack");
-
+const cors = require('cors');
 require("dotenv").config();
 
 module.exports = {

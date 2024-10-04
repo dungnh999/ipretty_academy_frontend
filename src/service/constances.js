@@ -8,6 +8,7 @@ export const AUTH_POST_LOG_OUT = API_URL + 'logout'
 export const AUTH_POST_LOGIN_URL = API_URL + 'auth/login';
 export const AUTH_POST_LOGIN_BY_TOKEN = API_URL + 'auth/login-by-token'
 export const AUTH_POST_SIGNUP_URL = API_URL + 'auth/signup';
+export const AUTH_GET_ACTIVE_EMAIL_URL = API_URL + 'auth/signup/activate';
 
 
 export const GET_ME_URL = API_URL + 'auth/me';
@@ -44,3 +45,20 @@ export const CREATE_ORDER_TRANSACTIONS_COURSE = API_URL + 'transactions'
 export const CREATE_ORDER_COURSE = API_URL + 'orders'
 export const GET_ORDER_DETAIL_COURSE = API_URL + 'order-detail'
 
+/**
+ * BANNER
+ * */
+
+export const GET_BANNER = API_URL + 'banners'
+
+
+/**
+ * NOTIFICATION
+ * */
+export const GET_LIST_NOTIFICATIN = API_URL + 'notifications'
+
+
+/**
+ * COURSE CATEGORY
+ * */
+export const GET_LIST_CATEGORY_COURSE = API_URL + 'course-categories'

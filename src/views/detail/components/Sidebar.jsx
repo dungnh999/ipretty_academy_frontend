@@ -6,7 +6,7 @@ import ModalTemplate from "academy/components/Modal/ModalTemplate";
 import CourseService from "academy/service/CourseService"
 import {useDispatch, useSelector} from 'react-redux';
 import { addToCart} from 'academy/constant/Cart/CartAction'
-import {formartCurrencyVNĐ} from "academy/helpers/utils";
+import {formartCurrencyVNĐ, getTokens} from "academy/helpers/utils";
 
 import ReactPlayer from "react-player";
 import {useNavigate, useParams} from "react-router-dom";
@@ -21,12 +21,10 @@ const Sidebar = (props) => {
     const { slug } = useParams();
     const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.itemCarts);
-
     const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
 
     async function joinCourse(){
-
         if(state.user || state.isAuthenticated){
             let res = await CourseService.checkJoinCourse(handleResponeseCheckJoin,handleErrorCheckJoin ,dataCourse['courseInfo']['course_id']);
         }else {
@@ -42,6 +40,15 @@ const Sidebar = (props) => {
     function handleErrorCheckJoin(e){
 
     }
+
+    const handleAddToCart = () => {
+        let user = getTokens();
+        if(user.authToken){
+            dispatch(addToCart(dataCourse['courseInfo']));
+        }else {
+            navigate('/login')
+        }
+    };
 
     function goToCart(){
         navigate('/cart')
@@ -68,16 +75,16 @@ const Sidebar = (props) => {
 
                         </div>
                         <div className='btn-start w-full'>
-                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={joinCourse}>Tham gia</button>
-                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>
-                            <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>
-                            {/* {
+                            {/*<button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={joinCourse}>Tham gia</button>*/}
+                            {/*<button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full mb-4' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>*/}
+                            {/*<button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>*/}
+                            {
                                 dataCourse['courseInfo']['is_register']
                                ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={joinCourse}>Tham gia</button>
                                : (items.some(obj => obj.course_id === dataCourse['courseInfo']['course_id']))
                                    ? <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={goToCart}>Đi đến giỏ hàng</button>
-                                   : <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={() => dispatch(addToCart(dataCourse['courseInfo']))}>Thêm giỏ hàng</button>
-                            } */}
+                                   : <button className='bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full w-full' onClick={handleAddToCart}>Thêm giỏ hàng</button>
+                            }
                         </div>
                     </div>
                 </div>

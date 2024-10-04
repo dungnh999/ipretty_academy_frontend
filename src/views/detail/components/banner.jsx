@@ -1,20 +1,30 @@
 import React from 'react';
 import {useDetailCourseContext} from "academy/context/DetailCourseContext";
+import BreadCrumb from "academy/components/UI/BreadCrumb";
 
 const Banner = (props) => {
     const {dataCourse} = useDetailCourseContext();
     return(
-        <div className="bg-black text-white py-[3.12rem] px-[0.62rem]">
+        <div className="bg-black text-white py-[2rem] px-[0.62rem]">
+            <BreadCrumb/>
             <div className="container max-w-screen-xl mx-auto gap-[3.75rem] flex flex-col">
                 <div className="flex flex-col gap-[1.25rem] pr-[27.5rem]">
-                    <div className="heading-name-catgory flex gap-[1.25rem] items-center">
-                        <div className="px-[0.75rem] py-[0.5rem] bg-gray-600 font-medium text-sm capitalize rounded-[0.5rem]">
-                            { dataCourse['courseInfo']['course_type'] }
-                        </div>
-                        <div className="text-base font-normal text-white">by {dataCourse['courseInfo']['teacher_name']}</div>
-                    </div>
                     <div className="title-detail-course">
                         <h1 className="text-[2.25rem]">{dataCourse['courseInfo']['name']}</h1>
+                    </div>
+                    <div className="heading-name-catgory flex gap-[1.25rem] items-center">
+                        <div className="px-[0.5rem] py-[0.2rem] bg-gray-600 font-medium text-sm capitalize rounded-[0.5rem]">
+                            { dataCourse['courseInfo']['course_type'] }
+                        </div>
+                        <a href='#' className="text-sm font-normal underline hover:no-underline text-primaryColor">by {dataCourse['courseInfo']['teacher_name']}</a>
+                    </div>
+                    <div className="flex gap-[1.5rem]">
+                        <div className="item-detail flex justify-center items-center">
+                            <span className="material-symbols-outlined">
+                                release_alert
+                            </span>
+                            <span className="ml-[0.5rem] ">Cập nhật lần cuối  {dataCourse['courseInfo']['updated_at']}</span>
+                        </div>
                     </div>
                     <div className="flex gap-[1.5rem]">
                         <div className="item-detail flex justify-center items-center">
