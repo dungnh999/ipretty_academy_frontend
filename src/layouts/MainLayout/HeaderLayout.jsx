@@ -9,6 +9,7 @@ import {NavLink} from "react-router-dom";
 
 const HeaderLayout = (props) => {
     const {state} = useContext(AuthContext);
+    console.log(state.isAuthenticated);
     return (
         <header className='sticky top-0 z-30 bg-white shadow-lg'>
             <nav className="border-b border-gray-200">
