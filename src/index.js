@@ -7,6 +7,7 @@ import 'flowbite'
 import RouterApp from 'academy/Router/Router';
 import { I18nextProvider } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
+import 'sweetalert2/src/sweetalert2.scss'
 import { ToastContainer} from 'react-toastify';
 
 const App = (RouterApp);
@@ -16,7 +17,7 @@ ReactDOM.render(
             <App/>
             <ToastContainer
                 stacked="true"
-                autoClose="2000"
+                autoClose="2    000"
             />
         </I18nextProvider>
     </>,

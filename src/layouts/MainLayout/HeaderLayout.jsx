@@ -1,15 +1,29 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import logo from 'assets/logo/logo-header.png'
 import Notification from "academy/components/Header/Notification";
 import Navigation from "academy/components/Header/navigation";
 import Cart from "academy/components/Header/Cart";
 import {AuthContext} from "academy/context/Authcontext";
 import Search from "academy/components/Home/Search";
-import {NavLink} from "react-router-dom";
-
+import { toast } from "react-toastify";
+import AuthService from "academy/service/AuthService"
 const HeaderLayout = (props) => {
     const {state} = useContext(AuthContext);
-    console.log(state.isAuthenticated);
+    function logout() {
+        AuthService.logout(handleResponses, handlError)
+    }
+
+    function handleResponses(res) {
+        localStorage.removeItem('authToken'); // Hoặc sử dụng phương thức khác để xóa token
+        localStorage.removeItem('user'); // Hoặc sử dụng phương thức khác để xóa token
+        window.location.href = '/login'; // Hoặc window.location.reload();
+
+    }
+
+    function handlError(res) {
+        // setDataCourse(res.data.data);
+    }
+
     return (
         <header className='sticky top-0 z-30 bg-white shadow-lg'>
             <nav className="border-b border-gray-200">
@@ -81,8 +95,9 @@ const HeaderLayout = (props) => {
                                     </ul>
                                     <div className="py-1">
                                         <a
-                                            href="#"
+                                            href="javascript:void(0)"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                            onClick={() => logout()}
                                         >
                                             Đăng xuất
                                         </a>

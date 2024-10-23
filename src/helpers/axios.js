@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {AUTH_POST_LOGIN_URL} from "academy/service/constances";
 import {getTokens} from "academy/helpers/utils";
+import Swal from 'sweetalert2'
 
 const axiosCustom = axios.create()
 axiosCustom.interceptors.response.use(function (response) {
@@ -43,6 +44,7 @@ axiosCustom.interceptors.response.use(function (response) {
 });
 
 function axiosTemplate(method , url , param , data, responseCb , errorCb){
+    console.log('api: ' + url + ' / Token: ' + getTokens().authToken );
     axiosCustom({
         method: method,
         url: url,
@@ -54,7 +56,36 @@ function axiosTemplate(method , url , param , data, responseCb , errorCb){
             'Accept': 'application/json',
         },
     })
-    .then(responseCb)
+    .then(response => {        
+         // Kiểm tra mã trạng thái ở đây
+         if (response.status === 401 && localStorage.getItem('authToken')) {
+            let timerInterval;
+            Swal.fire({
+                title: "Thông báo",
+                text: "Hết phiên đăng nhập vui lòng đăng nhập lại !",
+                icon: "warning",
+                timer: 200,
+              timerProgressBar: true,
+              willClose: () => {
+                clearInterval(timerInterval);
+              }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+                 // Xóa token (nếu cần)
+                localStorage.removeItem('authToken'); // Hoặc sử dụng phương thức khác để xóa token
+                localStorage.removeItem('user'); // Hoặc sử dụng phương thức khác để xóa token
+
+                // Chuyển hướng về trang đăng nhập hoặc tải lại trang
+                window.location.href = '/login'; // Hoặc window.location.reload();
+                return; // Dừng lại ở đây nếu bạn không muốn tiếp tục xử l        
+              }
+            });
+        }
+        
+        // Nếu yêu cầu thành công và không phải 401, gọi callback response
+        responseCb(response);
+    })
     .catch(errorCb)
 }
 

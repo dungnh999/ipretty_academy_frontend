@@ -47,7 +47,7 @@ const Login = (props) => {
             dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.data });
             toast.success('Đăng nhập thành công');
             setTokens(res.data.data.accessToken, res.data.data.user)
-            navigate('/')
+            window.location.href = '/';
         }else {
             toast.warn(res.data.message);
         }

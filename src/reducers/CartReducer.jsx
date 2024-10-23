@@ -9,13 +9,18 @@ const initialStateCart = {
 const CartReducer = (state = initialStateCart, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            let  itemCarts = [...state.itemCarts , action.payload ];
-            localStorage.setItem('cartItems', JSON.stringify(itemCarts));
-            return {
-                ...state,
-                itemCarts : itemCarts,
-                totalCount: state.totalCount + 1,
-            };
+            if(localStorage.getItem('authToken')){
+                let  itemCarts = [...state.itemCarts , action.payload ];
+                localStorage.setItem('cartItems', JSON.stringify(itemCarts));
+                return {
+                    ...state,
+                    itemCarts : itemCarts,
+                    totalCount: state.totalCount + 1,
+                };
+            }else{
+                window.location.href = '/login'
+                return;
+            }
         case REMOVE_FROM_CART:
             return {
                 ...state,

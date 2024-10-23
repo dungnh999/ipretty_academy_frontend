@@ -8,9 +8,19 @@ import Pagination from "academy/components/UI/Pagination";
 import {useDetailCourseContext} from "academy/context/DetailCourseContext";
 import {convertToMinutesAndSeconds} from "academy/helpers/utils";
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
+import ModalReview from './ModalReview';
 const TabsCourse = (props) => {
     const [currentTab, setCurrentTab] = useState(0);
     const {dataCourse} = useDetailCourseContext();
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [lesson, setLesson] = useState(false);
+    // const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+    const openModal = async (lesson) => {
+        setIsOpen(true);
+        setLesson(lesson)
+    }
+
 
     const tabs = [
         {
@@ -45,15 +55,31 @@ const TabsCourse = (props) => {
                                 <div className="flex flex-col">
                                     {item['lessons'].map((itemLesson) => (
                                         <div className='pl-[2.75rem] pr-[1.25rem] py-[1rem] flex gap-[0.5rem] justify-between items-center border-b last:border-0'>
-                                            <div className="flex gap-[0.5rem] items-center text-black font-normal">
-                                                <span className="material-symbols-outlined">file_copy</span>
-                                                <div>{itemLesson['lesson_name']}</div>
-                                            </div>
-                                            <div className='flex gap-[1rem] items-center'>
-                                                <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
-                                                <button className="bg-primaryColor py-[0.25rem] px-[0.75rem] rounded-lg text-sm font-normal text-white leading-normal">Học thử</button>
-                                                <span className="material-symbols-outlined">lock</span>
-                                            </div>
+                                            {itemLesson['is_demo'] ?    
+                                                                        <>
+                                                                            <div className="flex gap-[0.5rem] items-center text-primaryColor font-normal">
+                                                                                <span class="material-symbols-outlined">live_tv</span>
+                                                                                <div>{itemLesson['lesson_name']}</div>
+                                                                            </div>
+                                                                            <div className='flex gap-[1rem] items-center'>
+                                                                                <button className="bg-primaryColor py-[0.25rem] px-[0.75rem] rounded-lg text-sm font-normal text-white leading-normal" onClick={() => openModal(itemLesson['main_attachment'])}>Học thử</button>
+                                                                                <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                                                <span class="material-symbols-outlined">visibility</span>
+                                                                            </div> 
+                                                                        </>
+                                                                    :   
+                                                                        <>
+                                                                            <div className="flex gap-[0.5rem] items-center text-black font-normal">
+                                                                                <span class="material-symbols-outlined">live_tv</span>
+                                                                                <div>{itemLesson['lesson_name']}</div>
+                                                                            </div>
+                                                                            <div className='flex gap-[1rem] items-center'>
+                                                                                <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                                                <span className="material-symbols-outlined">lock</span>
+                                                                            </div>
+                                                                        </>
+
+                                            }
                                         </div>
                                     ))}
                                 </div>
@@ -274,7 +300,14 @@ const TabsCourse = (props) => {
             <div className="p-[1.88rem] bg-bgGray rounded-b-xl text-base">
                 {tabs[currentTab].content}
             </div>
+
+            <ModalReview 
+                modalIsOpen={modalIsOpen}
+                closeModal={closeModal}
+                lesson={lesson}
+            />
         </div>
+
     )
 };
 

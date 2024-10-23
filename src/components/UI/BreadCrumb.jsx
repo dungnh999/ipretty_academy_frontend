@@ -8,7 +8,7 @@ const BreadCrumb = (props) => {
 
 
     return(
-        <div className='bg-black pb-6'>
+        <div className='bg-black text-white py-[2rem] px-[0.62rem]'>
             <div className="container max-w-screen-xl mx-auto flex p-[0.625rem] items-center">
                 <p>
                     <Link to='/'>Trang chủ</Link>
