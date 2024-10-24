@@ -16,6 +16,7 @@ const Home = (props) => {
                 <div className="container max-w-screen-xl mx-auto gap-[5.625rem] flex flex-col">
                     <Category/>
                     <Course/>
+                    <Course/>
                     <AddOn/>
                     <Counter/>
                     <Skill/>

@@ -29,7 +29,7 @@ const Blog = (props) => {
     return(
         <div className="title-blog px-4 md:px-8 lg:px-12">
             <div>
-                <h1 className="text-2xl font-semibold capitalize">Latest articles</h1>
+                <h1 className="text-2xl font-semibold capitalize">Bài viết nổi bật</h1>
                 <p className="text-base font-normal text-subColor">Explore our Free Articles</p>
             </div>
             <div className="mt-[2.12rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1.88rem]">

@@ -31,7 +31,7 @@ const ListCourse = (props) => {
                             <div className="h-[15.625rem] w-[25.625rem] overflow-hidden relative">
                                 <ImageBannerWithFallback
                                     className="object-cover object-top w-full h-full"
-                                    src={item['course_feature_image']}
+                                    src={process.env.API_URL + item['course_feature_image']}
                                     alt='Course Thumbnail'
                                 />
                             </div>

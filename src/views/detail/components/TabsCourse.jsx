@@ -25,7 +25,9 @@ const TabsCourse = (props) => {
     const tabs = [
         {
             name: 'Tổng quan',
-            content: dataCourse['courseInfo']['description'],
+            content: (
+                <div dangerouslySetInnerHTML={{ __html: dataCourse['courseInfo']['description'] }} />
+            ),
         },
         {
             name: 'Nội dung',
@@ -56,28 +58,28 @@ const TabsCourse = (props) => {
                                     {item['lessons'].map((itemLesson) => (
                                         <div className='pl-[2.75rem] pr-[1.25rem] py-[1rem] flex gap-[0.5rem] justify-between items-center border-b last:border-0'>
                                             {itemLesson['is_demo'] ?    
-                                                                        <>
-                                                                            <div className="flex gap-[0.5rem] items-center text-primaryColor font-normal">
-                                                                                <span class="material-symbols-outlined">live_tv</span>
-                                                                                <div>{itemLesson['lesson_name']}</div>
-                                                                            </div>
-                                                                            <div className='flex gap-[1rem] items-center'>
-                                                                                <button className="bg-primaryColor py-[0.25rem] px-[0.75rem] rounded-lg text-sm font-normal text-white leading-normal" onClick={() => openModal(itemLesson['main_attachment'])}>Học thử</button>
-                                                                                <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
-                                                                                <span class="material-symbols-outlined">visibility</span>
-                                                                            </div> 
-                                                                        </>
-                                                                    :   
-                                                                        <>
-                                                                            <div className="flex gap-[0.5rem] items-center text-black font-normal">
-                                                                                <span class="material-symbols-outlined">live_tv</span>
-                                                                                <div>{itemLesson['lesson_name']}</div>
-                                                                            </div>
-                                                                            <div className='flex gap-[1rem] items-center'>
-                                                                                <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
-                                                                                <span className="material-symbols-outlined">lock</span>
-                                                                            </div>
-                                                                        </>
+                                                <>
+                                                    <div className="flex gap-[0.5rem] items-center text-primaryColor font-normal">
+                                                        <span class="material-symbols-outlined">live_tv</span>
+                                                        <div>{itemLesson['lesson_name']}</div>
+                                                    </div>
+                                                    <div className='flex gap-[1rem] items-center'>
+                                                        <button className="bg-primaryColor py-[0.25rem] px-[0.75rem] rounded-lg text-sm font-normal text-white leading-normal" onClick={() => openModal(itemLesson['main_attachment'])}>Học thử</button>
+                                                        <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                        <span class="material-symbols-outlined">visibility</span>
+                                                    </div> 
+                                                </>
+                                            :   
+                                                <>
+                                                    <div className="flex gap-[0.5rem] items-center text-black font-normal">
+                                                        <span class="material-symbols-outlined">live_tv</span>
+                                                        <div>{itemLesson['lesson_name']}</div>
+                                                    </div>
+                                                    <div className='flex gap-[1rem] items-center'>
+                                                        <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                        <span className="material-symbols-outlined">lock</span>
+                                                    </div>
+                                                </>
 
                                             }
                                         </div>

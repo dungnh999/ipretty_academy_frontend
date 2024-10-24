@@ -23,7 +23,8 @@ import DetailCourseProvider from "academy/context/DetailCourseContext";
 import PaymentSuccessful from "academy/views/checkout/views/PaymentSuccessful";
 import LearnView from "academy/views/learn/views/LearnView";
 import Verify from "academy/views/auth/view/Verify";
-
+import PrivateRouter from "./PrivateRouter";
+import Notification from "academy/views/notification/views/notification"
 /**
  * Router Public
  * */
@@ -70,7 +71,7 @@ const AppRouter = () => {
         <PublicRouter path="/course/:slug" element={<Detail/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/signup/verify/:id/:token" element={<Verify/>} template={<HomeLayoutMain/>}/>
         {/*<PublicRouter path="/*" element={<Error404/>} template={<HomeLayoutMain/>}> </PublicRouter>*/}
-
+        <PublicRouter path="/notification" element={<Notification/>} template={ <HomeLayoutMain/>}/>
         <Routes>
             <Route path='/course/:slug/learn/lecture/' element={<LearnView/>}>
                 <Route exact path=":id" element={<LearnView/>}></Route>

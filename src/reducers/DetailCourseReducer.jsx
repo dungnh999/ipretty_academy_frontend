@@ -18,6 +18,8 @@ export const DetailCourseReducer = (state,  action) => {
     switch(action.type) {
         case GET_DATA_DETAIL_COURSE: {
             const courseData = action.payload;
+            console.log(courseData);
+            
             let listChapterLesson = [];
             const teacherInfo = {
                 name: courseData.teacher ? courseData.teacher.name : "",

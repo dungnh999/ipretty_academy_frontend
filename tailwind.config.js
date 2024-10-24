@@ -31,9 +31,12 @@ module.exports = {
         borderButtonColor: "#9D9D9D",
         bgLigthGrey: "#EAEAEA",
         bgGray: "#F5F5F5",
+        bgFooter: '#DFF6F0',
         borderGray:"#555555",
         redColor: "#F51A1A",
-        yellowColor: "#F6B40A"
+        yellowColor: "#F6B40A",
+        textSubFooter: "#00593C",
+        textTitleFooter: '#00593C'
       },
       inset: {
         'auto': 'auto'

@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {useTranslation} from "react-i18next";
 import {AuthContext} from "academy/context/Authcontext";
 import NotificationService from "academy/service/NotificationService";
+import { Link } from 'react-router-dom';
 
 const Notification = (props) => {
     const {t} = useTranslation()
@@ -80,12 +81,12 @@ const Notification = (props) => {
                         )) :  ''
                     }
                 </div>
-                <a href="#"
+                <Link to="/notification" href="#"
                    className="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
                     <div className="inline-flex items-center ">
                         {t("component.view_all")}
                     </div>
-                </a>
+                </Link>
             </div>
         </div> : ''}
     </>)
