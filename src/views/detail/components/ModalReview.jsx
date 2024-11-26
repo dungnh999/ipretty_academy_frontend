@@ -12,6 +12,8 @@ const ModalReview = ({ modalIsOpen, closeModal, lesson}) => {
         chapter.lessons.filter(lesson => lesson.is_demo === 1)
     );    
 
+    console.log(dataCourse);
+    
     useEffect(() => {
         if (modalIsOpen && demoLessons.length > 0 && lesson === '') {
             console.log(0);

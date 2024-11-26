@@ -25,7 +25,7 @@ const Category = (props) => {
 
 
     return (
-        <div className="category-list px-4 md:px-8 lg:px-12">
+        <div className="category-list lg:px-4 md:px-8 lg:px-12">
             <div className="flex justify-between items-center">
                 <div>
                     <h2 className="text-2xl font-semibold">Danh Mục</h2>

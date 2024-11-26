@@ -29,7 +29,6 @@ const Notification = (props) => {
         // setDataCourse(res.data.data);
         console.log(res)
     }
-    console.log(dataNotification);
 
     return (<>
         {state.isAuthenticated ? <div className='group-notificaton'>
@@ -93,3 +92,5 @@ const Notification = (props) => {
 };
 
 export default Notification;
+
+

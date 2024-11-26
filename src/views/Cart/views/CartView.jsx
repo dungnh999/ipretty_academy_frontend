@@ -36,8 +36,9 @@ const CartView = (props) => {
                                             <div className="item-course flex rounded-lg overflow-hidden border-bgLigthGrey border w-full  shadow-lg cursor-pointer hover:-translate-y-5 hover:shadow-gray-300">
                                                 <div className="w-auto h-[195px] overflow-hidden relative">
                                                     <img className="object-cover object-top w-full h-full"
-                                                         src={itemCart['course_feature_image']}
+                                                         src={process.env.API_URL + itemCart['course_feature_image']}
                                                          alt='Mountain'/>
+
                                                 </div>
                                                 <div className="p-[1.25rem] flex flex-col justify-between w-full gap-[1rem]">
                                                     <div>

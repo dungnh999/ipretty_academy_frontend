@@ -62,3 +62,9 @@ export const GET_LIST_NOTIFICATIN = API_URL + 'notifications'
  * COURSE CATEGORY
  * */
 export const GET_LIST_CATEGORY_COURSE = API_URL + 'course-categories'
+
+
+/**
+ * CART 
+ * */
+export const POST_AĐD_CART_COURSE = API_URL + 'carts'
