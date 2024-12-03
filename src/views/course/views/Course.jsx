@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import BreadCrumb from "academy/components/UI/BreadCrumb";
 import TitleCourse from "academy/views/course/components/TitleCourse";
 import ListCourse from "academy/views/course/components/ListCourse";
-
+import CategoryCourse from "academy/views/course/components/CategoryCourse"
 const Home = (props) => {
+    const [filteredData, setFilteredData] = useState([]);
+    const handleCategoryChange = (categories) => {
+        setFilteredData(categories);
+    };
     return (
         <div>
             <BreadCrumb/>
@@ -12,92 +16,13 @@ const Home = (props) => {
                     <div className="flex justify-between gap-[1.87rem]">
                         <div className="basis-10/12">
                             <TitleCourse/>
-                            <ListCourse/>
+                            <ListCourse filteredData={filteredData}/>
                         </div>
                         <div className="basis-2/12 flex flex-col gap-[1.88rem] sticky">
                             <div className="item-sort">
-                                <h1 className="text-xl font-semibold capitalize text-black">Danh mục khoá học</h1>
-                                <ul className="mt-[1.25rem] flex flex-col gap-[0.62rem]">
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Commercial</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Office</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Shop</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Educate</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Academy</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">Studio</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <div className="group-name">
-                                            <div className="flex items-center space-x-3">
-                                                <input type="checkbox" className="border-gray-300 rounded h-4 w-4"/>
-                                                <h1 className="text-base font-normal leading-none capitalize">University</h1>
-                                            </div>
-                                        </div>
-                                        <div className="count-course">
-                                            <p className="font-normal text-subColor text-base">0</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <CategoryCourse onChangeCategory={handleCategoryChange}/>
                             </div>
-                            <div className="item-sort">
+                            {/* <div className="item-sort">
                                 <h1 className="text-xl font-semibold capitalize text-black">Giá</h1>
                                 <ul className="mt-[1.25rem] flex flex-col gap-[0.62rem]">
                                     <li className="flex justify-between items-center">
@@ -350,7 +275,7 @@ const Home = (props) => {
                                         </div>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

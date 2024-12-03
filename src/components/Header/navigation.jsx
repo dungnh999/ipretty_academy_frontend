@@ -19,12 +19,12 @@ const Navigation = (props) => {
                         { t("header.menu.course") }
                     </Link>
                 </li>
-                <li className="px-5">
+                {/* <li className="px-5">
                     <Link to="/blog"
                        className="block py-2 pr-4 pl-3 text-sm text-black border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:bg-transparent">
                         { t("header.menu.blog") }
                     </Link>
-                </li>
+                </li> */}
                 <li className="px-5">
                     <Link to="#"
                        className="block py-2 pr-4 pl-3 text-sm text-black border-b hover:text-primaryColor border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0  lg:dark:hover:bg-transparent">

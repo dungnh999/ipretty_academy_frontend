@@ -56,7 +56,7 @@ const Cart = (props) => {
                                                 <img className="w-auto h-full object-cover"
                                                      width="100"
                                                      height="100"
-                                                     src={item['course_feature_image']} alt="Jese image" />
+                                                     src={process.env.API_URL + item['course_feature_image']} alt="Jese image" />
                                             </div>
                                             <div className="w-full ps-3 w-full flex justify-start flex-col items-start">
                                                 <h1 className='text-sm font-semibold capitalize truncate w-64 text-left'>{item['name']}</h1>

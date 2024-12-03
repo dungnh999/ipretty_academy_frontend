@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'sweetalert2/src/sweetalert2.scss'
 import { ToastContainer} from 'react-toastify';
 
+
 const App = (RouterApp);
 ReactDOM.render(
     <>
@@ -17,7 +18,7 @@ ReactDOM.render(
             <App/>
             <ToastContainer
                 stacked="true"
-                autoClose="2    000"
+                autoClose="2000"
             />
         </I18nextProvider>
     </>,

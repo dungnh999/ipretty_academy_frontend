@@ -7,7 +7,7 @@ const TitleCourse = (props) => {
             <div className="title-course">
                 <h1 className="text-3xl font-semibold capitalize">Tất cả khoá học</h1>
             </div>
-            <div className="box-search flex gap-[1.25rem] items-center">
+            {/* <div className="box-search flex gap-[1.25rem] items-center">
                 <div className="relative text-gray-600 w-[16.875rem]">
                     <input type="search" name="serch" placeholder="Tìm kiếm"
                            className="bg-white h-10  text-sm focus:outline-none border-b-2 border-black w-full"/>
@@ -29,7 +29,7 @@ const TitleCourse = (props) => {
                             </span>
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 };

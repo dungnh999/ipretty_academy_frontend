@@ -84,9 +84,11 @@ const Checkout = (props) => {
                                                 <div
                                                     className="item-course flex rounded-lg overflow-hidden border-bgLigthGrey border w-full  shadow-lg cursor-pointer hover:-translate-y-5 hover:shadow-gray-300">
                                                     <div className="w-[10.625rem] overflow-hidden relative">
-                                                        <img className="object-cover object-top w-full h-full"
-                                                             src={itemCourse['course_feature_image']}
-                                                             alt='Mountain'/>
+                                                        <img 
+                                                            className="object-cover object-top w-full h-full"
+                                                            src={process.env.API_URL + itemCourse['course_feature_image']}
+                                                            alt='Mountain'
+                                                        />
                                                     </div>
                                                     <div className="p-[1.25rem] flex justify-between w-full items-center">
                                                         <div>

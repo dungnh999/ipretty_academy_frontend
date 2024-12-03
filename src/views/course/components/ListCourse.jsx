@@ -4,8 +4,9 @@ import CourseService from "academy/service/CourseService"
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
 import {Link } from 'react-router-dom';
 import {formartCurrencyVNĐ} from 'academy/helpers/utils'
-const ListCourse = (props) => {
+const ListCourse = ({filteredData}) => {
     const [dataCourse , setDataCourse] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]); // Sản phẩm đã lọc
     useEffect(() => {
         getDataCourse();
     },[])
@@ -22,10 +23,21 @@ const ListCourse = (props) => {
         // setDataCourse(res.data.data);        
     }
     
+
+    useEffect(() => {
+        // Lọc dữ liệu
+        if (filteredData.length === 0) {
+            setFilteredProducts(dataCourse); // Hiển thị tất cả nếu không có gì được chọn
+        } else {
+            setFilteredProducts(dataCourse.filter((item) => filteredData.includes(item.category_name)));
+        }
+    },[filteredData, dataCourse] )
+    
+
     return(
         <div className="mt-[2.5rem] grid grid-cols-1 gap-[1.88rem]">
             {
-                (dataCourse) ? dataCourse.map((item, key) => (
+                (filteredProducts) ? filteredProducts.map((item, key) => (
                     <Link to={`/course/${item['slug_course']}`}>
                         <div className="item-course flex rounded-lg overflow-hidden border-bgLigthGrey border w-full  shadow-lg cursor-pointer hover:-translate-y-5 hover:shadow-gray-300">
                             <div className="h-[15.625rem] w-[25.625rem] overflow-hidden relative">
