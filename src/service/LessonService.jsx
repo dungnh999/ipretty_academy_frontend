@@ -1,4 +1,4 @@
-import axiosTemplate from "academy/helpers/axios";
+import TemplateAxios from "academy/helpers/axios";
 // import {GET_LESSON_URL, DELETE_LESSONS_URL, UPDATE_PROCESS_LESSON, GET_ALL_COURSE_URL} from "academy/service/constances";
 import {UPDATE_PROCESS_LESSON} from "academy/service/constances";
 
@@ -47,7 +47,7 @@ import {UPDATE_PROCESS_LESSON} from "academy/service/constances";
 // }
 
 function updateProcessLesson(data) {
-    return axiosTemplate('POST', UPDATE_PROCESS_LESSON, '', data);
+    return TemplateAxios.axiosTemplate('POST', UPDATE_PROCESS_LESSON, '', data);
 }
 
 const LessonService = {

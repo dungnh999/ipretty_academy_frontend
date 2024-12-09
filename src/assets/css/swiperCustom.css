@@ -1,3 +1,7 @@
 .swiper-pagination-bullet-active {
     @apply bg-primaryColor h-2 w-2;
 }
+
+.pl-10{
+    padding-left: 2.5rem;
+}

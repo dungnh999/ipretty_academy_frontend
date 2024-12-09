@@ -1,9 +1,9 @@
 import i18n from 'academy/locales/config/index'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'academy/css/index.css';
-import 'react-dropdown/style.css';
 import 'flowbite'
+import 'academy/css/index.css';
+// import 'react-dropdown/style.css';
 import RouterApp from 'academy/Router/Router';
 import { I18nextProvider } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';

@@ -1,8 +1,8 @@
 import {GET_BANNER} from './constances';
-import axiosTemplate from "academy/helpers/axios";
+import TemplateAxios from "academy/helpers/axios";
 
 function getBanner(reponse , error) {
-    return axiosTemplate('get',GET_BANNER, '', '', reponse , error)
+    return TemplateAxios.axiosTemplate('get',GET_BANNER, '', '', reponse , error)
 }
 
 

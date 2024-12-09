@@ -1,11 +1,10 @@
 import React from 'react';
-import ErrorImage from 'academy/assets/Image/error-default.png'
-const ImageBannerWithFallback = (props) => {
-    const handleError = (e) => {
-        e.target.src = ErrorImage;
-    };
+import {handleDefaultImage} from "academy/helpers/defaultImage";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-    return <img className={props.className} src={props.src} alt={props.alt} onError={handleError} />;
+const ImageBannerWithFallback = (props) => {
+    return <LazyLoadImage className={props.className} effect="blur" src={props.src} alt={props.alt} onError={handleDefaultImage}></LazyLoadImage>;
 };
 
 export default ImageBannerWithFallback;

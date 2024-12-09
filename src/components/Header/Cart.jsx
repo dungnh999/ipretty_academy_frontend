@@ -10,7 +10,7 @@ import Empty from "academy/assets/icons/empty"
 const customTheme = {
     Dropdown: {
         floating: {
-            header: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-200',
+            header: 'block text-sm text-gray-700 dark:text-gray-200',
         },
     },
 };
@@ -41,9 +41,10 @@ const Cart = (props) => {
                         </button>
                     }
                     inline
+                    className="!top-[12px]"
                     arrowIcon=''
                 >
-                    <Dropdown.Header className="block px-4 py-2 font-medium text-center text-xl text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
+                    <Dropdown.Header className="block font-medium text-center text-xl text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
                         Giỏ hàng
                     </Dropdown.Header>
                     {

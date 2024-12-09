@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+const flowbite = require("flowbite-react/tailwind");
 
 
 /** @type {import('tailwindcss').Config} */
@@ -6,21 +7,22 @@ module.exports = {
   content: [
     "./node_modules/flowbite/**/*.js",
     "./src/**/*.{js,jsx,ts,tsx}",
+    flowbite.content(),
   ],
   theme: {
-    fontSize: {
-      sm: '1rem',
-      base: '1.125rem',
-      xl: '1.25rem',
-      '2xl': '2rem',
-      '3xl': '2.25rem',
-      '4xl': '3rem',
-      '5xl': '3.052rem',
-    },
-    fontFamily: {
-      sans: ["Exo", ...defaultTheme.fontFamily.sans],
-    },
     extend: {
+      fontSize: {
+        sm: '1rem',
+        base: '1.125rem',
+        xl: '1.25rem',
+        '2xl': '2rem',
+        '3xl': '2.25rem',
+        '4xl': '3rem',
+        '5xl': '3.052rem',
+      },
+      fontFamily: {
+        sans: ["Exo", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         bgColor: "#147B65",
         primaryColor: "#147B65",
@@ -62,7 +64,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('@tailwindcss/line-clamp')
   ],
 }
 

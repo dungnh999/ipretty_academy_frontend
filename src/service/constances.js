@@ -67,4 +67,13 @@ export const GET_LIST_CATEGORY_COURSE = API_URL + 'course-categories'
 /**
  * CART 
  * */
-export const POST_AĐD_CART_COURSE = API_URL + 'carts'
+export const POST_ADD_CART_COURSE = API_URL + 'carts'
+
+
+/**
+ * USER
+ * */
+
+export const POST_UPDATE_PROFILE = API_URL + 'update-profile'
+export const POST_UPDATE_AVATAR = API_URL + 'upload-avatar'
+export const GET_MY_COURSE = API_URL + 'my-courses'

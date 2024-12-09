@@ -25,6 +25,7 @@ import LearnView from "academy/views/learn/views/LearnView";
 import Verify from "academy/views/auth/view/Verify";
 import PrivateRouter from "./PrivateRouter";
 import Notification from "academy/views/notification/views/notification"
+import Profile from "academy/views/profile/views/index"
 /**
  * Router Public
  * */
@@ -72,6 +73,7 @@ const AppRouter = () => {
         <PublicRouter path="/signup/verify/:id/:token" element={<Verify/>} template={<HomeLayoutMain/>}/>
         {/*<PublicRouter path="/*" element={<Error404/>} template={<HomeLayoutMain/>}> </PublicRouter>*/}
         <PublicRouter path="/notification" element={<Notification/>} template={ <HomeLayoutMain/>}/>
+        <PublicRouter path="/profile" element={<Profile/>} template={ <HomeLayoutMain/>}/>
         <Routes>
             <Route path='/course/:slug/learn/lecture/' element={<LearnView/>}>
                 <Route exact path=":id" element={<LearnView/>}></Route>

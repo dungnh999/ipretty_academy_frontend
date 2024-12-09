@@ -26,7 +26,7 @@ const Banner = (props) => {
                             <span className="ml-[0.5rem] ">Cập nhật lần cuối  {dataCourse['courseInfo']['updated_at']}</span>
                         </div>
                     </div>
-                    <div className="flex gap-[1.5rem]">
+                    {/* <div className="flex gap-[1.5rem]">
                         <div className="item-detail flex justify-center items-center">
                             <i className="material-symbols-outlined text-primaryColor">
                                 schedule
@@ -51,7 +51,7 @@ const Banner = (props) => {
                             </i>
                             <span className="ml-[0.5rem] ">2 Weeks</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

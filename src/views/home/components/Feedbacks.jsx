@@ -4,8 +4,8 @@ const Feedbacks = (props) => {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-                <h2 className="mb-3 text-2xl font-semibold">Student feedbacks</h2>
-                <p className="text-subColor font-medium text-base">What Students Say About Academy LMS</p>
+                <h2 className="mb-3 text-2xl font-semibold">Cảm nhận học viên</h2>
+                <p className="text-subColor font-medium text-base">Học viên nói gì về IPRETTY ACADEMY</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="py-8 px-6 border border-bgLigthGrey rounded-lg">
