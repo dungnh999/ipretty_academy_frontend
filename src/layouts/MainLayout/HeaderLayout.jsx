@@ -114,7 +114,7 @@ const HeaderLayout = (props) => {
                 <Navbar.Collapse>
                     <Navbar.Link><Link to="/">Trang chủ</Link></Navbar.Link>
                     <Navbar.Link><Link to="/course">Khóa học</Link></Navbar.Link>
-                    <Navbar.Link><Link to="/course">Bài viết</Link></Navbar.Link>
+                    {/*<Navbar.Link><Link to="/course">Bài viết</Link></Navbar.Link>*/}
                     <Navbar.Link><Link to="/contact">Liên hệ</Link></Navbar.Link>
                 </Navbar.Collapse>
             </MegaMenu>
