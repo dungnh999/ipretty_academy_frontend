@@ -9,6 +9,7 @@ const TabsCourse = (props) => {
     const [currentTab, setCurrentTab] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [totalReco, setTotalReco] = useState(0);
     const [ratingPersen, setRatingPersen] = useState({});
     const [totalRating, setTotalRating] = useState(0);
     const {dataCourse} = useDetailCourseContext();
@@ -22,7 +23,6 @@ const TabsCourse = (props) => {
     }
 
     const onPageChange = (page) => {
-        console.log(page);
         setCurrentPage(page);
     };
 
@@ -225,30 +225,33 @@ const TabsCourse = (props) => {
                 <div>
                     <p className='font-semibold capitalize text-xl'>Đánh giá</p>
                 </div>
-                <div>
-                    <Rating theme={customTheme} className="mb-2">
-                        <Rating.Star />
-                        <Rating.Star />
-                        <Rating.Star />
-                        <Rating.Star />
-                        <Rating.Star filled={false} />
-                        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 trên 5</p>
-                    </Rating>
-                    <p className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">{totalRating} lượt đánh giá</p>
-                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_1} className="mb-2">
-                        5 sao
-                    </Rating.Advanced>
-                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_2} className="mb-2">
-                        4 sao
-                    </Rating.Advanced>
-                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_3} className="mb-2">
-                        3 sao
-                    </Rating.Advanced>
-                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_4} className="mb-2">
-                        2 sao
-                    </Rating.Advanced>
-                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_5}>1 sao</Rating.Advanced>
-                </div>
+                {(totalReco > 0)
+                    ?   <div>
+                            <Rating theme={customTheme} className="mb-2">
+                                <Rating.Star />
+                                <Rating.Star />
+                                <Rating.Star />
+                                <Rating.Star />
+                                <Rating.Star filled={false} />
+                                <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 trên 5</p>
+                            </Rating>
+                            <p className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">{totalRating} lượt đánh giá</p>
+                            <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_1} className="mb-2">
+                                5 sao
+                            </Rating.Advanced>
+                            <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_2} className="mb-2">
+                                4 sao
+                            </Rating.Advanced>
+                            <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_3} className="mb-2">
+                                3 sao
+                            </Rating.Advanced>
+                            <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_4} className="mb-2">
+                                2 sao
+                            </Rating.Advanced>
+                            <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_5}>1 sao</Rating.Advanced>
+                        </div>
+                    : ''
+                }
                 <div className='list-comment'>
                     <div className='flex flex-col gap-[1.25rem]'>
                         {(dataComment || dataComment.length > 0)
@@ -283,33 +286,36 @@ const TabsCourse = (props) => {
                                             </div>
                                         </div>
                             })
-                            : 'Chưa c bình luận '
+                            :   <div className='text-center'> Không có bình luận </div>
                         }
-
                     </div>
-                    <div className="flex overflow-x-auto sm:justify-center mt-3">
-                        <Pagination
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            previousLabel="Trước"
-                            nextLabel="Sau"
-                            onPageChange={onPageChange}
-                        />
-                    </div>
+                    {(totalReco  > 0)
+                        ?   <div className="flex overflow-x-auto sm:justify-center mt-3">
+                                <Pagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPages}
+                                    previousLabel="Trước"
+                                    nextLabel="Sau"
+                                    onPageChange={onPageChange}
+                                />
+                            </div>
+                        : ''
+                    }
                 </div>
             </div>,
         },
     ];
 
     useEffect(() => {
-        CommentService.getListCommentByCourse(handleResponses,handlError, {course_id : 9, page: currentPage })
+        CommentService.getListCommentByCourse(handleResponses,handlError, {course_id : dataCourse['courseInfo']['course_id'] , page: currentPage })
     }, [currentPage])
 
     function handleResponses(res) {
         setDataComment(res.data.data.comment.data);
-        setTotalPages(res.data.data.comment.per_page)
+        setTotalPages(res.data.data.comment.total / res.data.data.comment.per_page)
         setRatingPersen(res.data.data.rating_persen)
         setTotalRating(res.data.data.total_rating)
+        setTotalReco(res.data.data.comment.total)
         console.log(res)
     }
 
@@ -318,6 +324,7 @@ const TabsCourse = (props) => {
         console.log(res)
     }
 
+    console.log(totalPages)
 
     return (
         <div className="flex flex-col max-w-full w-width-tab-course">

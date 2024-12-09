@@ -39,7 +39,7 @@ const ModalReview = ({ modalIsOpen, closeModal, lesson}) => {
             footerContent=''
             isFooter='true'
         >
-            <div className='video-preview relative h-[300px] sticky top-0 mb-6 rounded-3xl '>
+            <div className='video-preview relative h-[300px] sticky top-0 mb-6 rounded-3xl z-40	'>
                 <ReactPlayer
                     url={currentVideoUrl}
                     controls={true}
