@@ -2,10 +2,11 @@ import React, {useEffect, useState, useRef} from 'react';
 import CourseService from "academy/service/CourseService"
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
 import {Link } from 'react-router-dom';
-import {formartCurrencyVNĐ} from 'academy/helpers/utils'
+import {convertToDayHourMinute, formartCurrencyVNĐ} from 'academy/helpers/utils'
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import { HiArrowSmRight, HiArrowSmLeft } from "react-icons/hi";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Rating } from "flowbite-react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 const Course = (props) => {
@@ -107,14 +108,25 @@ const Course = (props) => {
                                             <p className="capitalize font-semibold text-base group-hover:text-primaryColor truncate">{item['course_name']}</p>
                                         </div>
                                         <div className="py-4 flex gap-4">
-                                            <div className="flex gap-1 items-center justify-center">
-                                                <p className="material-symbols-outlined text-primaryColor block">nest_clock_farsight_analog</p>
-                                                <p className="text-sm font-normal text-subColor">2 ngày</p>
-                                            </div>
-                                            <div className="flex gap-1 items-center justify-center">
-                                                <p className="material-symbols-outlined text-primaryColor">person</p>
-                                                <p className="text-sm font-normal text-subColor">156 Học sinh</p>
-                                            </div>
+                                        {/*    <div className="flex gap-1 items-center justify-center">*/}
+                                        {/*        <p className="material-symbols-outlined text-primaryColor block">nest_clock_farsight_analog</p>*/}
+                                        {/*        <p className="text-sm font-normal text-subColor">{convertToDayHourMinute(item['total_duration'])}</p>*/}
+                                        {/*    </div>*/}
+                                        {/*    <div className="flex gap-1 items-center justify-center">*/}
+                                        {/*        <p className="material-symbols-outlined text-primaryColor">person</p>*/}
+                                        {/*        <p className="text-sm font-normal text-subColor">156 Học sinh</p>*/}
+                                        {/*    </div>*/}
+                                            <Rating>
+                                                <p className="mr-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star filled={false} />
+                                                <p className="text-xs ml-1 font-normal text-gray-2">
+                                                    (73)
+                                                </p>
+                                            </Rating>
                                         </div>
                                         <hr className="text-subColor"/>
                                         <div className="pt-4">

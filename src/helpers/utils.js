@@ -17,7 +17,7 @@ export const setTokens = (authToken, user) => {
 };
 
 export const formartCurrencyVNĐ = (number) => {
-    return  number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    return Number(number).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 };
 
 
@@ -38,3 +38,30 @@ export const fomartTimeString = (timestamp) => {
 
     return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 }
+
+
+export const convertToDayHourMinute = (total_duration) => {
+    const days = Math.floor(total_duration / 24); // Tính số ngày
+    const hours = Math.floor(total_duration % 24); // Tính số giờ còn lại
+    const minutes = Math.floor((total_duration - Math.floor(total_duration)) * 60); // Tính số phút còn lại
+    return `${days} ngày, ${hours} giờ, ${minutes} phút`;
+};
+
+export const convertToHourMinuteCourse = (total_duration) => {
+    const days = Math.floor(total_duration / 24); // Tính số ngày
+    const hours = Math.floor(total_duration % 24); // Tính số giờ còn lại
+    const minutes = Math.round((total_duration - Math.floor(total_duration)) * 60); // Chuyển phần thập phân thành phút và làm tròn
+
+    // Nếu có ngày, hiển thị ngày, giờ và phút
+    if (days > 0) {
+        return `${days} ngày  ${hours} giờ  ${minutes} phút`;
+    }
+
+    // Nếu không có ngày, chỉ hiển thị giờ và phút
+    if (hours > 0) {
+        return `${hours} giờ  ${minutes} phút`;
+    }
+
+    // Nếu chỉ có phút
+    return `${minutes} phút`;
+};

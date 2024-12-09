@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDetailCourseContext} from "academy/context/DetailCourseContext";
 import BreadCrumb from "academy/components/UI/BreadCrumb";
+import {Link} from "react-router-dom";
 
 const Banner = (props) => {
     const {dataCourse} = useDetailCourseContext();
@@ -13,9 +14,11 @@ const Banner = (props) => {
                         <h1 className="text-[2.25rem]">{dataCourse['courseInfo']['name']}</h1>
                     </div>
                     <div className="heading-name-catgory flex gap-[1.25rem] items-center">
-                        <div className="px-[0.5rem] py-[0.2rem] bg-gray-600 font-medium text-sm capitalize rounded-[0.5rem]">
-                            { dataCourse['courseInfo']['course_type'] }
-                        </div>
+                        <Link to={'/course/category/' + dataCourse['courseInfo']['category_id']}>
+                            <div className="px-[0.5rem] py-[0.2rem] bg-gray-600 font-medium text-sm capitalize rounded-[0.5rem]">
+                                { dataCourse['courseInfo']['category_name'] }
+                            </div>
+                        </Link>
                         <a href='#' className="text-sm font-normal underline hover:no-underline text-primaryColor">by {dataCourse['courseInfo']['teacher_name']}</a>
                     </div>
                     <div className="flex gap-[1.5rem]">

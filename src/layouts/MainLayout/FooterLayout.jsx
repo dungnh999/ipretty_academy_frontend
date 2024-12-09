@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from 'assets/logo/logo-header.png'
+import {Link} from "react-router-dom";
+import { SiLinkedin , SiFacebook , SiYoutube, SiInstagram} from "react-icons/si";
 
 const FooterLayout = (props) => {
     return (
@@ -14,7 +16,7 @@ const FooterLayout = (props) => {
                         </div>
                         <div className="detail-brand mt-[2rem]">
                             <p className="text-base font-light text-gray-400 text-textSubFooter">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet asperiores atque dolores ea
+                                Ipretty Group được thành lập từ năm 2010, là đơn vị phân phối độc quyền tại Việt Nam các thiết bị làm đẹp, thiết bị y tế và thương hiệu dược mỹ phẩm danh tiếng trên Thế Giới.
                             </p>
                         </div>
                     </div>
@@ -24,9 +26,10 @@ const FooterLayout = (props) => {
                         </div>
                         <div className="menu-footer mt-[2rem]">
                             <ul>
-                                <li className="text-base font-light text-textSubFooter leading-[2.8125rem]">Liên Hệ</li>
-                                <li className="text-base font-light text-textSubFooter leading-[2.8125rem]">sdsdsds</li>
-                                <li className="text-base font-light text-textSubFooter leading-[2.8125rem]">FAQ</li>
+                                <li className="text-base font-light text-textSubFooter leading-[2.8125rem]">
+                                    <Link to='/contact'>Liên hệ </Link>
+                                </li>
+                                {/*<li className="text-base font-light text-textSubFooter leading-[2.8125rem]">FAQ</li>*/}
                             </ul>
                         </div>
                     </div>
@@ -49,33 +52,34 @@ const FooterLayout = (props) => {
                         <div className="menu-footer mt-[2rem]">
                             <ul className="leading-[1.6875rem]">
                                 <li className="text-base font-light text-textSubFooter mb-[1rem]">
-                                    Địa chỉ: <span className="block">199 Lý chính thắng, phường Võ Thị Sáu quận 3</span>
+                                    <label className="font-bold"> Địa chỉ: </label>
+                                    <span className="block">199 Lý chính thắng, phường Võ Thị Sáu quận 3</span>
                                 </li>
                                 <li className="text-base font-light text-textSubFooter mb-[1rem]">
-                                    Số điện thoại: <span className="block">+(84) 0123456789</span>
+                                    <label className="font-bold">Số điện thoại:</label>
+                                    <span className="block">+(84) 0123456789</span>
                                 </li>
                                 <li className="text-base font-light text-textSubFooter mb-[1rem]">
-                                    Mail: <span className="block">support@gmail.com</span>
+                                    <label className="font-bold">Mail:</label>
+                                    <span className="block">support@gmail.com</span>
                                 </li>
                                 <li className="text-base font-light text-textSubFooter mb-[1rem]">
                                     <div className="grid gap-[0.75rem] grid-cols-7">
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
+                                        <a href="https://www.facebook.com/ipretty.vietnam" className="hover:text-primaryColor">
+                                            {/*<span className="material-symbols-outlined">insert_chart</span>*/}
+                                            <SiFacebook size={30} />
                                         </a>
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
+                                        <a href="https://www.linkedin.com/company/ipretty-cuoc-song-tuoi-dep/" className="hover:text-primaryColor">
+                                            {/*<span className="material-symbols-outlined">insert_chart</span>*/}
+                                            <SiLinkedin size={30} />
                                         </a>
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
+                                        <a href="https://www.youtube.com/@ipretty-vn" className="hover:text-primaryColor">
+                                            {/*<span className="material-symbols-outlined">insert_chart</span>*/}
+                                            <SiYoutube size={30} />
                                         </a>
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
-                                        </a>
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
-                                        </a>
-                                        <a href="#" className="hover:text-primaryColor">
-                                            <span className="material-symbols-outlined">insert_chart</span>
+                                        <a href="https://www.instagram.com/ipretty.vn/" className="hover:text-primaryColor">
+                                            {/*<span className="material-symbols-outlined">insert_chart</span>*/}
+                                            <SiInstagram size={30} />
                                         </a>
                                     </div>
                                 </li>
@@ -84,7 +88,7 @@ const FooterLayout = (props) => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center pt-[2rem] mt-[5.62rem] border-t-2 border-borderButtonColor">
-                    <p className="text-center  text-textSubFooter">Copyright © 2024 Nguyễn Huy Dũng</p>
+                    <p className="text-center  text-textSubFooter">Copyright © 2024 Ipretty</p>
                 </div>
             </div>
         </div>

@@ -19,11 +19,8 @@ const Home = (props) => {
                     <Course/>
                     <AddOn/>
                     <Counter/>
-                    <Skill/>
-                    <AddOn/>
                     <Feedbacks/>
-                    <AddOn/>
-                    <Blog/>
+                    {/*<Blog/>*/}
                 </div>
             </div>
         </div>

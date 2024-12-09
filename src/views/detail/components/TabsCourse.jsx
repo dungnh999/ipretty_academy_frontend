@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
-import start from 'academy/assets/icons/start'
-import start_full from 'academy/assets/icons/start_full'
-import reply from 'academy/assets/icons/reply'
-import previous from 'academy/assets/icons/previous'
-import next from 'academy/assets/icons/next'
-import Pagination from "academy/components/UI/Pagination";
+import React, { useState, useEffect } from 'react';
+import { Rating, Pagination } from "flowbite-react";
 import {useDetailCourseContext} from "academy/context/DetailCourseContext";
-import {convertToMinutesAndSeconds} from "academy/helpers/utils";
+import {convertToHourMinuteCourse, convertToMinutesAndSeconds} from "academy/helpers/utils";
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
 import ModalReview from './ModalReview';
+import CommentService from "academy/service/Comment";
 const TabsCourse = (props) => {
     const [currentTab, setCurrentTab] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [ratingPersen, setRatingPersen] = useState({});
+    const [totalRating, setTotalRating] = useState(0);
     const {dataCourse} = useDetailCourseContext();
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [dataComment, setDataComment] = useState(false);
     const [lesson, setLesson] = useState(false);
-    // const openModal = () => setIsOpen(true);
     const closeModal = () => setIsOpen(false);
     const openModal = async (lesson) => {
         setIsOpen(true);
         setLesson(lesson)
     }
 
+    const onPageChange = (page) => {
+        console.log(page);
+        setCurrentPage(page);
+    };
+
+    const customTheme = {
+        "base": "flex items-center",
+        "label": "text-sm font-medium text-primaryColor ",
+        "progress": {
+            "base": "mx-4 h-5 w-2/4 rounded bg-gray-200 ",
+            "fill": "h-5 rounded bg-yellow-400",
+            "label": "text-sm font-medium text-primaryColor "
+        }
+    }
 
     const tabs = [
         {
@@ -33,6 +47,7 @@ const TabsCourse = (props) => {
             name: 'Nội dung',
             content: <div>
                 {/* <p>LearnPress is a comprehensive WordPress LMS Plugin for WordPress. This is one of the best WordPress LMS Plugins which can be used to easily create & sell courses online.</p> */}
+                <div className="font-normal">Tổng thời gian : {convertToHourMinuteCourse(dataCourse['courseInfo']['total_duration'])}</div>
                 <div className="list-lessons flex flex-col gap-[1rem] mt-[1.25rem]">
                     {dataCourse['listChapterLesson'].map((item, key) => (
                         <div key={item['id']} className='bg-white rounded-lg item-lessons shadow-md'>
@@ -65,7 +80,7 @@ const TabsCourse = (props) => {
                                                     </div>
                                                     <div className='flex gap-[1rem] items-center'>
                                                         <button className="bg-primaryColor py-[0.25rem] px-[0.75rem] rounded-lg text-sm font-normal text-white leading-normal" onClick={() => openModal(itemLesson['main_attachment'])}>Học thử</button>
-                                                        <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                        <span className="leading-none text-sm font-normal">{convertToHourMinuteCourse(itemLesson['lesson_duration'])}</span>
                                                         <span class="material-symbols-outlined">visibility</span>
                                                     </div> 
                                                 </>
@@ -76,7 +91,7 @@ const TabsCourse = (props) => {
                                                         <div>{itemLesson['lesson_name']}</div>
                                                     </div>
                                                     <div className='flex gap-[1rem] items-center'>
-                                                        <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
+                                                        <span className="leading-none text-sm font-normal">{convertToHourMinuteCourse(itemLesson['lesson_duration'])}</span>
                                                         <span className="material-symbols-outlined">lock</span>
                                                     </div>
                                                 </>
@@ -118,169 +133,192 @@ const TabsCourse = (props) => {
                 </div>
             </div>,
         },
-        {
-            name: 'FAQs',
-            content: <div className='flex flex-col gap-[1.25rem]'>
-                <div className="list-lessons flex flex-col gap-[0.75rem]">
-                    {/* Lesson Item 1 */}
-                    <div className='bg-white rounded-lg item-lessons shadow-md'>
-                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]" open>
-                            <summary
-                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
-                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
-                                <svg
-                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
-                                    strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M18 12H6"></path>
-                                    <path className="group-open:hidden" d="M12 6v12"></path>
-                                </svg>
-                            </summary>
-                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
-                            </div>
-                        </details>
-                    </div>
-
-                    {/* Lesson Item 2 */}
-                    <div className='bg-white rounded-lg item-lessons shadow-md'>
-                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
-                            <summary
-                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
-                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
-                                <svg
-                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
-                                    strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M18 12H6"></path>
-                                    <path className="group-open:hidden" d="M12 6v12"></path>
-                                </svg>
-                            </summary>
-                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
-                            </div>
-                        </details>
-                    </div>
-
-                    {/* Lesson Item 3 */}
-                    <div className='bg-white rounded-lg item-lessons shadow-md'>
-                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
-                            <summary
-                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
-                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
-                                <svg
-                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
-                                    strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M18 12H6"></path>
-                                    <path className="group-open:hidden" d="M12 6v12"></path>
-                                </svg>
-                            </summary>
-                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
-                            </div>
-                        </details>
-                    </div>
-
-                    {/* Lesson Item 4 */}
-                    <div className='bg-white rounded-lg item-lessons shadow-md'>
-                        <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
-                            <summary
-                                className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
-                                <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
-                                <svg
-                                    className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
-                                    strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M18 12H6"></path>
-                                    <path className="group-open:hidden" d="M12 6v12"></path>
-                                </svg>
-                            </summary>
-                            <div className="mt-[1.25rem] text-base font-normal text-subColor">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
-                            </div>
-                        </details>
-                    </div>
-                </div>
-            </div>,
-        },
+        // {
+        //     name: 'FAQs',
+        //     content: <div className='flex flex-col gap-[1.25rem]'>
+        //         <div className="list-lessons flex flex-col gap-[0.75rem]">
+        //             {/* Lesson Item 1 */}
+        //             <div className='bg-white rounded-lg item-lessons shadow-md'>
+        //                 <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]" open>
+        //                     <summary
+        //                         className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
+        //                         <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+        //                         <svg
+        //                             className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+        //                             fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
+        //                             strokeLinecap="round" strokeLinejoin="round">
+        //                             <path d="M18 12H6"></path>
+        //                             <path className="group-open:hidden" d="M12 6v12"></path>
+        //                         </svg>
+        //                     </summary>
+        //                     <div className="mt-[1.25rem] text-base font-normal text-subColor">
+        //                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+        //                     </div>
+        //                 </details>
+        //             </div>
+        //
+        //             {/* Lesson Item 2 */}
+        //             <div className='bg-white rounded-lg item-lessons shadow-md'>
+        //                 <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
+        //                     <summary
+        //                         className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
+        //                         <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+        //                         <svg
+        //                             className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+        //                             fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
+        //                             strokeLinecap="round" strokeLinejoin="round">
+        //                             <path d="M18 12H6"></path>
+        //                             <path className="group-open:hidden" d="M12 6v12"></path>
+        //                         </svg>
+        //                     </summary>
+        //                     <div className="mt-[1.25rem] text-base font-normal text-subColor">
+        //                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+        //                     </div>
+        //                 </details>
+        //             </div>
+        //
+        //             {/* Lesson Item 3 */}
+        //             <div className='bg-white rounded-lg item-lessons shadow-md'>
+        //                 <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
+        //                     <summary
+        //                         className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
+        //                         <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+        //                         <svg
+        //                             className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+        //                             fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
+        //                             strokeLinecap="round" strokeLinejoin="round">
+        //                             <path d="M18 12H6"></path>
+        //                             <path className="group-open:hidden" d="M12 6v12"></path>
+        //                         </svg>
+        //                     </summary>
+        //                     <div className="mt-[1.25rem] text-base font-normal text-subColor">
+        //                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+        //                     </div>
+        //                 </details>
+        //             </div>
+        //
+        //             {/* Lesson Item 4 */}
+        //             <div className='bg-white rounded-lg item-lessons shadow-md'>
+        //                 <details className="group marker:content-[''] py-[1.25rem] px-[1.88rem]">
+        //                     <summary
+        //                         className="flex w-full cursor-pointer select-none justify-between text-left text-base font-semibold leading-7 text-slate-900 group-open:text-primaryColor [&::-webkit-details-marker]:hidden">
+        //                         <p className='text-sm font-semibold'>What Does Royalty Free Mean?</p>
+        //                         <svg
+        //                             className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
+        //                             fill="none" xmlns="http://www.w3.org/2000/svg" strokeWidth="2"
+        //                             strokeLinecap="round" strokeLinejoin="round">
+        //                             <path d="M18 12H6"></path>
+        //                             <path className="group-open:hidden" d="M12 6v12"></path>
+        //                         </svg>
+        //                     </summary>
+        //                     <div className="mt-[1.25rem] text-base font-normal text-subColor">
+        //                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid aut beatae corporis distinctio id impedit incidunt ipsa iusto nostrum nulla quam, quasi quis sapiente tempore ullam ut vitae voluptatum?
+        //                     </div>
+        //                 </details>
+        //             </div>
+        //         </div>
+        //     </div>,
+        // },
         {
             name: 'Đánh giá',
-            content: <div className="flex flex-col gap-[1.25rem] px-4 md:px-8 lg:px-16">
+            content: <div className="flex flex-col gap-[1.25rem] px-4">
                 <div>
-                    <p className='font-semibold capitalize text-xl'>comments</p>
+                    <p className='font-semibold capitalize text-xl'>Đánh giá</p>
                 </div>
-                <div className='flex gap-[0.75rem] items-center'>
-                    <p className='text-3xl font-semibold'>5.0</p>
-                    <div className='flex flex-col'>
-                        <div className='flex gap-[0.25rem]'>
-                            <img src={start_full} className='h-[1.25rem] w-[1.25rem]' />
-                            <img src={start_full} className='h-[1.25rem] w-[1.25rem]' />
-                            <img src={start_full} className='h-[1.25rem] w-[1.25rem]' />
-                            <img src={start_full} className='h-[1.25rem] w-[1.25rem]' />
-                            <img src={start_full} className='h-[1.25rem] w-[1.25rem]' />
-                        </div>
-                        <p className='text-subColor font-normal text-sm'>based on 146,951 ratings</p>
-                    </div>
-                </div>
-                <div className='flex flex-col gap-[1rem]'>
-                    {[
-                        { percentage: 90, stars: [true, true, true, true, true] },
-                        { percentage: 50, stars: [true, true, true, true, false] },
-                        { percentage: 20, stars: [true, true, true, false, false] },
-                        { percentage: 10, stars: [true, true, false, false, false] },
-                        { percentage: 45, stars: [false, false, false, false, false] },
-                    ].map((item, index) => (
-                        <div className='flex gap-[1.25rem] items-center' key={index}>
-                            <div className='flex gap-[0.5rem] items-center'>
-                                <div className='flex gap-[0.25rem]'>
-                                    {item.stars.map((filled, starIndex) => (
-                                        <img
-                                            src={filled ? start_full : start}
-                                            className='h-[1rem] w-[1rem]'
-                                            key={starIndex}
-                                        />
-                                    ))}
-                                </div>
-                                <div>{item.percentage}%</div>
-                            </div>
-                            <div className="flex-1 bg-bgLigthGrey h-[0.54769rem]">
-                                <div className="bg-yellowColor h-[0.54769rem]" style={{ width: `${item.percentage}%` }}></div>
-                            </div>
-                        </div>
-                    ))}
+                <div>
+                    <Rating theme={customTheme} className="mb-2">
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star />
+                        <Rating.Star filled={false} />
+                        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.95 trên 5</p>
+                    </Rating>
+                    <p className="mb-4 text-sm font-medium text-gray-500 dark:text-gray-400">{totalRating} lượt đánh giá</p>
+                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_1} className="mb-2">
+                        5 sao
+                    </Rating.Advanced>
+                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_2} className="mb-2">
+                        4 sao
+                    </Rating.Advanced>
+                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_3} className="mb-2">
+                        3 sao
+                    </Rating.Advanced>
+                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_4} className="mb-2">
+                        2 sao
+                    </Rating.Advanced>
+                    <Rating.Advanced  theme={customTheme} percentFilled={ratingPersen.start_5}>1 sao</Rating.Advanced>
                 </div>
                 <div className='list-comment'>
                     <div className='flex flex-col gap-[1.25rem]'>
-                        {Array.from({ length: 4 }).map((_, index) => (
-                            <div className='flex gap-[1.25rem] border-t pt-[1.25rem]' key={index}>
-                                <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full'>
-                                    <img src="https://www.figma.com/file/hON9ZENqGZHJ6UUl8FSRxR/EduPress---UI-Kit-for-Education-%26-Online-Learning-(Community)?type=design&node-id=1-723&mode=dev" alt="" />
-                                </div>
-                                <div className='flex flex-1 flex-col gap-[0.5rem]'>
-                                    <div className='flex-1'>
-                                        <div className='flex justify-between'>
-                                            <h1 className='text-sm font-semibold'>Laura Hipster</h1>
-                                            <p className='text-sm font-normal text-subColor'>October 03, 2022</p>
+                        {(dataComment || dataComment.length > 0)
+                            ?  dataComment.map(function (item , index) {
+                                return <div className='flex gap-[1.25rem] border-t pt-[1.25rem]' key={index}>
+                                            <div className='h-[3.75rem] w-[3.75rem] bg-borderGray rounded-full overflow-hidden'>
+                                                <ImageBannerWithFallback src="">{item.user_avatar}</ImageBannerWithFallback>
+                                            </div>
+                                            <div className='flex flex-1 flex-col gap-[0.5rem]'>
+                                                <div className='flex-1'>
+                                                    <div className='flex justify-between'>
+                                                        <h1 className='text-sm font-semibold'>{item.user_name}</h1>
+                                                        {/*<p className='text-sm font-normal text-subColor'>October 03, 2022</p>*/}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <Rating>
+                                                        {Array.from({ length: 5 }).map((_, index) => (
+                                                            <Rating.Star key={index} filled={index < item.rating} />
+                                                        ))}
+                                                    </Rating>
+                                                </div>
+                                                <div>
+                                                    <p className='text-base text-subColor font-normal'>
+                                                        {item.comment}
+                                                    </p>
+                                                </div>
+                                                {/*<div className='flex gap-[0.5rem] items-center'>*/}
+                                                {/*    <img src={reply} alt='Lỗi ảnh' />*/}
+                                                {/*    <span className='text-sm font-normal'>Reply</span>*/}
+                                                {/*</div>*/}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <p className='text-base text-subColor font-normal'>
-                                            Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.
-                                        </p>
-                                    </div>
-                                    <div className='flex gap-[0.5rem] items-center'>
-                                        <img src={reply} alt='Lỗi ảnh' />
-                                        <span className='text-sm font-normal'>Reply</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                            })
+                            : 'Chưa c bình luận '
+                        }
+
+                    </div>
+                    <div className="flex overflow-x-auto sm:justify-center mt-3">
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            previousLabel="Trước"
+                            nextLabel="Sau"
+                            onPageChange={onPageChange}
+                        />
                     </div>
                 </div>
             </div>,
         },
     ];
+
+    useEffect(() => {
+        CommentService.getListCommentByCourse(handleResponses,handlError, {course_id : 9, page: currentPage })
+    }, [currentPage])
+
+    function handleResponses(res) {
+        setDataComment(res.data.data.comment.data);
+        setTotalPages(res.data.data.comment.per_page)
+        setRatingPersen(res.data.data.rating_persen)
+        setTotalRating(res.data.data.total_rating)
+        console.log(res)
+    }
+
+    function handlError(res) {
+        // setDataCourse(res.data.data);
+        console.log(res)
+    }
+
+
     return (
         <div className="flex flex-col max-w-full w-width-tab-course">
             {/* Tạo các tab */}

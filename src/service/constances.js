@@ -62,6 +62,8 @@ export const GET_LIST_NOTIFICATIN = API_URL + 'notifications'
  * COURSE CATEGORY
  * */
 export const GET_LIST_CATEGORY_COURSE = API_URL + 'course-categories'
+export const GET_LIST_COURSE_CATEGORY = API_URL + 'course/category'
+
 
 
 /**
@@ -77,3 +79,10 @@ export const POST_ADD_CART_COURSE = API_URL + 'carts'
 export const POST_UPDATE_PROFILE = API_URL + 'update-profile'
 export const POST_UPDATE_AVATAR = API_URL + 'upload-avatar'
 export const GET_MY_COURSE = API_URL + 'my-courses'
+
+/**
+ * COMMENT
+ * */
+
+export const GET_LIST_COMMENT = API_URL + 'feedback'
+export const GET_LIST_COMMENT_BY_COURSE = API_URL + 'rating-comment-course'

@@ -1,46 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import Pagination from "academy/components/UI/Pagination";
-import CourseService from "academy/service/CourseService"
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
-import {Link } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {formartCurrencyVNĐ} from 'academy/helpers/utils'
+import CourseCategoryService from "academy/service/CourseCategoryService";
 const ListCourse = ({filteredData}) => {
     const [dataCourse , setDataCourse] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]); // Sản phẩm đã lọc
+    const { category_id } = useParams();
     useEffect(() => {
-        getDataCourse();
+        getDataCourseCategory();
     },[])
 
-    function getDataCourse(){
-         CourseService.getCourse(handleResponses, handlError);
+    function getDataCourseCategory(){
+        CourseCategoryService.getListCourseCategory(handleResponses, handlError, {category_id : category_id});
     }
 
     function handleResponses(res){
+        console.log(res);
         setDataCourse(res.data.data);
     }
 
     function handlError(res){
-        // setDataCourse(res.data.data);        
+        console.log(res);
+        // setDataCourse(res.data.data);
     }
-    
 
-    useEffect(() => {
-        // Lọc dữ liệu
-        if (filteredData.length === 0) {
-            setFilteredProducts(dataCourse); // Hiển thị tất cả nếu không có gì được chọn
-        } else {
-            setFilteredProducts(dataCourse.filter((item) => filteredData.includes(item.category_name)));
-        }
-    },[filteredData, dataCourse] )
-    
+    console.log(dataCourse);
 
     return(
         <div className="mt-[2.5rem] grid grid-cols-1 gap-[1.88rem]">
             {
-                (filteredProducts) ? filteredProducts.map((item, key) => (
+                (dataCourse) ? dataCourse.map((item, key) => (
                     <Link to={`/course/${item['slug_course']}`}>
                         <div className="item-course flex rounded-lg overflow-hidden border-bgLigthGrey border w-full  shadow-lg cursor-pointer hover:-translate-y-5 hover:shadow-gray-300">
-                            <div className="h-auto w-[25.625rem] max-h-[15rem] overflow-hidden relative">
+                            <div className="h-[15.625rem] w-[25.625rem] overflow-hidden relative">
                                 <ImageBannerWithFallback
                                     className="object-cover object-top w-full h-full"
                                     src={process.env.API_URL + item['course_feature_image']}
@@ -91,7 +84,7 @@ const ListCourse = ({filteredData}) => {
                                 <div className="border-t-bgLigthGrey border-t pt-[1rem] flex items-center justify-between">
                                     <div>
                                         <p className="price text-base text-borderButtonColor ">
-                                            <del>{formartCurrencyVNĐ(item['course_price'])}</del>
+                                            {formartCurrencyVNĐ(item['course_price'])}
                                             <span className="text-primaryColor font-normal text-base pl-[0.5rem]">{formartCurrencyVNĐ(item['course_sale_price'])}</span>
                                         </p>
                                     </div>
@@ -102,7 +95,7 @@ const ListCourse = ({filteredData}) => {
                             </div>
                         </div>
                     </Link>
-                )) : ''      
+                )) : ''
             }
         </div>
     )

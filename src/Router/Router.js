@@ -26,6 +26,7 @@ import Verify from "academy/views/auth/view/Verify";
 import PrivateRouter from "./PrivateRouter";
 import Notification from "academy/views/notification/views/notification"
 import Profile from "academy/views/profile/views/index"
+import CourseCategory from "academy/views/course-category/views/course-category";
 /**
  * Router Public
  * */
@@ -70,6 +71,7 @@ const AppRouter = () => {
         <PublicRouter path="/cart" element={<CartView/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/course" element={<Course/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/course/:slug" element={<Detail/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/course/category/:category_id" element={<CourseCategory/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/signup/verify/:id/:token" element={<Verify/>} template={<HomeLayoutMain/>}/>
         {/*<PublicRouter path="/*" element={<Error404/>} template={<HomeLayoutMain/>}> </PublicRouter>*/}
         <PublicRouter path="/notification" element={<Notification/>} template={ <HomeLayoutMain/>}/>

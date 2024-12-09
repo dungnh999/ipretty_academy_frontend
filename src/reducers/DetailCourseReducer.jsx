@@ -18,8 +18,7 @@ export const DetailCourseReducer = (state,  action) => {
     switch(action.type) {
         case GET_DATA_DETAIL_COURSE: {
             const courseData = action.payload;
-            console.log(courseData);
-            
+
             let listChapterLesson = [];
             const teacherInfo = {
                 name: courseData.teacher ? courseData.teacher.name : "",
@@ -36,7 +35,7 @@ export const DetailCourseReducer = (state,  action) => {
                 number_of_students: courseData.number_of_students,
                 scoreRating: courseData.scoreRating,
                 course_description: courseData.course_description,
-                course_target: courseData.course_target.course_target,
+                course_target: courseData.course_target,
                 course_feature_image: courseData.course_feature_image,
                 certificate_image: courseData.certificate_image,
                 isCompletedCourse: courseData.isCompletedCourse,
@@ -44,6 +43,8 @@ export const DetailCourseReducer = (state,  action) => {
                 completed_at: courseData.completed_at,
                 course_id: courseData.course_id,
                 rating: courseData.rating,
+                category_name: courseData.category,
+                category_id : courseData.category_id,
                 comment: courseData.comment,
                 rating_round: courseData.rating_round,
                 course_type: courseData.course_type,
@@ -59,6 +60,7 @@ export const DetailCourseReducer = (state,  action) => {
                 number_course_lesson: courseData.number_course_lesson ? courseData.number_course_lesson : 0,
                 percent_done: courseData.percent_done ? courseData.percent_done : 0,
                 number_learning: courseData.number_learning ? courseData.number_learning : 0,
+                total_duration: courseData.total_duration ? courseData.total_duration : 0,
                 updated_at: courseData.updated_at
             };
             const learningProcess = courseData.learningProcess;
