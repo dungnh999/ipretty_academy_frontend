@@ -2,11 +2,11 @@ import React, {useEffect, useState, useRef} from 'react';
 import CourseService from "academy/service/CourseService"
 import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
 import {Link } from 'react-router-dom';
-import {convertToDayHourMinute, formartCurrencyVNĐ} from 'academy/helpers/utils'
+import {convertToDayHourMinute, convertToHourMinuteCourse, formartCurrencyVNĐ} from 'academy/helpers/utils'
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
-import { HiArrowSmRight, HiArrowSmLeft } from "react-icons/hi";
+import { HiArrowSmRight, HiArrowSmLeft , HiEye, HiClock} from "react-icons/hi";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Rating } from "flowbite-react";
+import { Rating, Avatar } from "flowbite-react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 const Course = (props) => {
@@ -91,7 +91,7 @@ const Course = (props) => {
                                 <Link to={`/course/${item['slug_course']}`}>
                                     <div className="h-60 overflow-hidden relative">
                                         <ImageBannerWithFallback
-                                            className="object-cover w-full h-full"
+                                            className="object-cover w-full h-60"
                                             src={process.env.API_URL +  item['course_feature_image']}
                                             alt='Course Thumbnail'
                                         />
@@ -100,10 +100,20 @@ const Course = (props) => {
                                         </p>
                                     </div>
                                     <div className="p-5">
-                                        <p className="text-subColor text-sm pb-2">
-                                            <span>by: </span>
-                                            <span className="font-medium">{item['teacher_name']}</span>
-                                        </p>
+                                        <div className="text-subColor text-xs pb-2 flex gap-2 items-center">
+                                            <Avatar
+                                                size='xs'
+                                                rounded
+                                                img={(props) => (
+                                                    <ImageBannerWithFallback
+                                                        className="rounded-full h-6 w-6"
+                                                        alt=""
+                                                        src={item['teacher_avatar']}
+                                                    />
+                                                )}
+                                            />
+                                            <p className="font-medium">{item['teacher_name']}</p>
+                                        </div>
                                         <div className="name-title-course">
                                             <p className="capitalize font-semibold text-base group-hover:text-primaryColor truncate">{item['course_name']}</p>
                                         </div>
@@ -128,11 +138,21 @@ const Course = (props) => {
                                                 </p>
                                             </Rating>
                                         </div>
+                                        <div className="flex gap-4 justify-between">
+                                            <div className='flex gap-2'>
+                                                <HiEye size="20"/>
+                                                <span>{item['count_viewer']}</span>
+                                            </div>
+                                            <div className='flex gap-2'>
+                                                <HiClock size="20"/>
+                                                <span>{convertToHourMinuteCourse(item['total_duration'])}</span>
+                                            </div>
+                                        </div>
                                         <hr className="text-subColor"/>
                                         <div className="pt-4">
                                             <div className="flex justify-between">
                                                 <div className="text-base">
-                                                    {item['course_sale_price'] === 0 ? (
+                                                    {Number(item['course_sale_price']) === 0 ? (
                                                         <span className="font-medium capitalize text-primaryColor">Miễn Phí</span>
                                                     ) : item['course_price'] === 0 ? (
                                                         <span className="font-medium capitalize text-primaryColor">{formartCurrencyVNĐ(item['course_price'])}</span>

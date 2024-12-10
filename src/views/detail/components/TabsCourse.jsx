@@ -316,7 +316,6 @@ const TabsCourse = (props) => {
         setRatingPersen(res.data.data.rating_persen)
         setTotalRating(res.data.data.total_rating)
         setTotalReco(res.data.data.comment.total)
-        console.log(res)
     }
 
     function handlError(res) {

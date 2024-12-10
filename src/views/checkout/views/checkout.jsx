@@ -1,14 +1,17 @@
 import React from 'react';
 import BreadCrumb from "academy/components/UI/BreadCrumb";
 import LogoVnpay from "academy/assets/logo/vnpay"
-import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {formartCurrencyVNĐ} from "academy/helpers/utils";
+import {formartCurrencyVNĐ, setTokens} from "academy/helpers/utils";
 import PaymentService from "academy/service/PaymentService";
 import OrderService from "academy/service/OrderService";
+import TransactionService from "academy/service/TransactionService";
+import {toast} from "react-toastify";
+import {removeAllCart} from "academy/constant/Cart/CartAction";
+import {useDispatch, useSelector} from 'react-redux';
 
 const Checkout = (props) => {
-
+    const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.itemCarts);
     const totalCount = useSelector((state) => state.cart.totalCount);
     const navigate = useNavigate();
@@ -23,12 +26,32 @@ const Checkout = (props) => {
     };
 
     const responesCb = (res) => {
-        console.log(res);
-        let data = new FormData();
-        data.append('amount', totalAmount)
-        data.append('order_id', res.data.data.order_id)
-        PaymentService.getPaymentCourse(responesVnpay, errorsCb, data)
+        if(totalAmount > 0 ){
+            let data = new FormData();
+            data.append('amount', totalAmount)
+            data.append('order_id', res.data.data.order_id)
+            PaymentService.getPaymentCourse(responesVnpay, errorsCb, data)
+        }else {
+            TransactionService.createOrderTransactionsCourse(responesTransaction, errorsTransaction, {
+                order_id: res.data.data.order_id,
+                payment_method : 'free',
+            })
+        }
     }
+
+    const responesTransaction = (res) => {
+        toast.success('Đăng ký khóa học thành công');
+        dispatch(removeAllCart());
+        setTimeout(function(){
+            window.location.href = '/'
+        }, 3000);
+
+    }
+
+    const errorsTransaction = (e) => (
+        console.log(e)
+    )
+
 
     const responesVnpay = (res) => {
         window.location.href = res.data.vnp_Url
@@ -45,34 +68,37 @@ const Checkout = (props) => {
                 <h1 className='text-2xl font-semibold my-[3.75rem]'>THANH TOÁN</h1>
                 <div className='grid grid-cols-3 gap-[1.88rem]'>
                     <div className='col-span-2 flex flex-col gap-[1.5rem]'>
-                        <div className='item-payment'>
-                            <h1 className='text-xl font-semibold '>Phương thức thanh toán</h1>
-                            <ul className="grid w-full gap-6 grid-cols-4">
-                                {/*<li>*/}
-                                {/*    <input type="radio" id="Momo-small" name="payment" value="Momo-small" className="hidden peer" required checked/>*/}
-                                {/*    <label htmlFor="Momo-small"*/}
-                                {/*           className="inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-primaryColor peer-checked:border-2 peer-checked:text-primaryColor hover:text-gray-600 hover:bg-gray-100 h-full ">*/}
-                                {/*        <div className="block">*/}
-                                {/*            <div className="w-full text-lg font-semibold h-[72px]">*/}
-                                {/*                <img src={LogoMomo} alt='Lỗi' className='h-full w-full'/>*/}
-                                {/*            </div>*/}
-                                {/*        </div>*/}
-                                {/*    </label>*/}
-                                {/*</li>*/}
-                                <li>
-                                    <input type="radio" id="vnpay-big" name="payment" value="vnpay-big"
-                                           className="hidden peer"/>
-                                    <label htmlFor="vnpay-big"
-                                           className="inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-primaryColor peer-checked:border-2 peer-checked:text-primaryColor hover:text-gray-600 hover:bg-gray-100 h-full ">
-                                        <div className="block">
-                                            <div className="w-full text-lg font-semibold h-[72px]">
-                                                <img src={LogoVnpay} alt='Lỗi' className='h-full w-full'/>
+                        {(totalAmount > 0)
+                            ? <div className='item-payment'>
+                                <h1 className='text-xl font-semibold '>Phương thức thanh toán</h1>
+                                <ul className="grid w-full gap-6 grid-cols-4">
+                                    {/*<li>*/}
+                                    {/*    <input type="radio" id="Momo-small" name="payment" value="Momo-small" className="hidden peer" required checked/>*/}
+                                    {/*    <label htmlFor="Momo-small"*/}
+                                    {/*           className="inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-primaryColor peer-checked:border-2 peer-checked:text-primaryColor hover:text-gray-600 hover:bg-gray-100 h-full ">*/}
+                                    {/*        <div className="block">*/}
+                                    {/*            <div className="w-full text-lg font-semibold h-[72px]">*/}
+                                    {/*                <img src={LogoMomo} alt='Lỗi' className='h-full w-full'/>*/}
+                                    {/*            </div>*/}
+                                    {/*        </div>*/}
+                                    {/*    </label>*/}
+                                    {/*</li>*/}
+                                    <li>
+                                        <input type="radio" id="vnpay-big" name="payment" value="vnpay-big"
+                                               className="hidden peer"/>
+                                        <label htmlFor="vnpay-big"
+                                               className="inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer  peer-checked:border-primaryColor peer-checked:border-2 peer-checked:text-primaryColor hover:text-gray-600 hover:bg-gray-100 h-full ">
+                                            <div className="block">
+                                                <div className="w-full text-lg font-semibold h-[72px]">
+                                                    <img src={LogoVnpay} alt='Lỗi' className='h-full w-full'/>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            : ''
+                        }
                         <div className='item-list'>
                             <h1 className='text-xl font-semibold '>Danh sách khoá học</h1>
                             <p>Bạn có 4 khoá học trong giỏ hàng</p>
@@ -84,7 +110,7 @@ const Checkout = (props) => {
                                                 <div
                                                     className="item-course flex rounded-lg overflow-hidden border-bgLigthGrey border w-full  shadow-lg cursor-pointer hover:-translate-y-5 hover:shadow-gray-300">
                                                     <div className="w-[10.625rem] overflow-hidden relative">
-                                                        <img 
+                                                        <img
                                                             className="object-cover object-top w-full h-full"
                                                             src={process.env.API_URL + itemCourse['course_feature_image']}
                                                             alt='Mountain'

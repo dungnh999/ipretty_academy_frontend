@@ -4,6 +4,7 @@ import {AuthContext} from "academy/context/Authcontext";
 import NotificationService from "academy/service/NotificationService";
 import {Link} from 'react-router-dom';
 import {Dropdown, DropdownHeader} from "flowbite-react";
+import {timeAgoTemplate} from "academy/helpers/utils";
 
 const Notification = (props) => {
     const {t} = useTranslation()
@@ -72,7 +73,7 @@ const Notification = (props) => {
                                 <div className="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
                                     {item['info']['message']}
                                 </div>
-                                <div className="text-xs text-blue-600 dark:text-blue-500 text-left">{item['time_notification']}</div>
+                                <div className="text-xs text-blue-600 dark:text-blue-500 text-left">{timeAgoTemplate(item['created_at'])}</div>
                             </div>
                         </a>
                     </Dropdown.Item>

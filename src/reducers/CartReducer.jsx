@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from 'academy/constant/Cart/CartAction';
+import {ADD_TO_CART, REMOVE_ALL_CART, REMOVE_FROM_CART} from 'academy/constant/Cart/CartAction';
 
 const initialStateCart = {
     itemCarts : JSON.parse(localStorage.getItem('cartItems')) || [],
@@ -27,6 +27,10 @@ const CartReducer = (state = initialStateCart, action) => {
                 itemCarts: [...state.itemCarts , action.payload ],
                 totalCount: state.totalCount + 1,
             };
+        case REMOVE_ALL_CART:
+            if(localStorage.getItem('authToken')){
+                localStorage.removeItem('cartItems');
+            }
         default:
             return state;
     }

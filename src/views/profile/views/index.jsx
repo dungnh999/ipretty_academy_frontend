@@ -1,7 +1,7 @@
 import React, {useEffect,useState } from 'react';
 import BreadCrumb from "academy/components/UI/BreadCrumb";
-import { Label, Textarea ,Datepicker, Badge, Avatar, Button, Tabs, Card, Progress } from "flowbite-react";
-import { useLocation } from "react-router-dom";
+import { Label, Textarea ,Datepicker, Badge, Avatar, Button, Tabs, Card, Progress, Table } from "flowbite-react";
+import {Link, useLocation} from "react-router-dom";
 import UsersService from "academy/service/UsersService";
 import {toast} from "react-toastify";
 import { HiUserCircle } from "react-icons/hi";
@@ -297,21 +297,23 @@ const Profile = (props) => {
                                                 >
                                                     {dataMyCourse.map(function (item) {
                                                         return <SwiperSlide>
-                                                                    <Card
-                                                                        className="max-w-sm"
-                                                                        imgAlt="Meaningful alt text for an image that is not purely decorative"
-                                                                        renderImage={() => <ImageBannerWithFallback width="500" height="500" src={ process.env.API_URL + item['course_feature_image']} alt="image 1"></ImageBannerWithFallback>}
-                                                                    >
-                                                                        <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                                                            { item.course_name }
-                                                                        </h5>
-                                                                        <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-4" dangerouslySetInnerHTML={{ __html: item.course_description }}></p>
-                                                                        <Progress labelProgress
-                                                                                  progressLabelPosition="inside"
-                                                                                  size="lg"
-                                                                                  progress={item['student_result']['percent_finish']}
-                                                                        />
-                                                                    </Card>
+                                                                    <Link to={`/course/${item['slug_course']}`}>
+                                                                        <Card
+                                                                            className="max-w-sm overflow-hidden"
+                                                                            imgAlt="Meaningful alt text for an image that is not purely decorative"
+                                                                            renderImage={() => <ImageBannerWithFallback src={ process.env.API_URL + item['course_feature_image']} alt="image 1" className="w-full h-[300px] object-cover"></ImageBannerWithFallback>}
+                                                                        >
+                                                                            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                                                { item.course_name }
+                                                                            </h5>
+                                                                            <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-4" dangerouslySetInnerHTML={{ __html: item.course_description }}></p>
+                                                                            <Progress labelProgress
+                                                                                      progressLabelPosition="inside"
+                                                                                      size="lg"
+                                                                                      progress={item['student_result']['percent_finish']}
+                                                                            />
+                                                                        </Card>
+                                                                    </Link>
                                                                 </SwiperSlide>
                                                     })}
                                                 </Swiper>
@@ -462,7 +464,59 @@ const Profile = (props) => {
                                         </Tabs.Item>
                                     </Tabs>
                                 </div>
-                                <div id="order" role="tabpanel" aria-labelledby="order-tab" className={(selectedTab === 'order') ? '' : 'hidden'}>order
+                                <div id="order" role="tabpanel" aria-labelledby="order-tab" className={(selectedTab === 'order') ? '' : 'hidden'}>
+                                    <div className="overflow-x-auto">
+                                        <Table>
+                                            <Table.Head>
+                                                <Table.HeadCell>Mã đơn hàng</Table.HeadCell>
+                                                <Table.HeadCell>Tên khóa học</Table.HeadCell>
+                                                <Table.HeadCell>Giá</Table.HeadCell>
+                                                <Table.HeadCell>Trạng thái</Table.HeadCell>
+                                                <Table.HeadCell>
+                                                    <span className="sr-only">Edit</span>
+                                                </Table.HeadCell>
+                                            </Table.Head>
+                                            <Table.Body className="divide-y">
+                                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                                        {'Apple MacBook Pro 17"'}
+                                                    </Table.Cell>
+                                                    <Table.Cell>Sliver</Table.Cell>
+                                                    <Table.Cell>Laptop</Table.Cell>
+                                                    <Table.Cell>$2999</Table.Cell>
+                                                    <Table.Cell>
+                                                        <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                                                            Edit
+                                                        </a>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                                        Microsoft Surface Pro
+                                                    </Table.Cell>
+                                                    <Table.Cell>White</Table.Cell>
+                                                    <Table.Cell>Laptop PC</Table.Cell>
+                                                    <Table.Cell>$1999</Table.Cell>
+                                                    <Table.Cell>
+                                                        <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                                                            Edit
+                                                        </a>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</Table.Cell>
+                                                    <Table.Cell>Black</Table.Cell>
+                                                    <Table.Cell>Accessories</Table.Cell>
+                                                    <Table.Cell>$99</Table.Cell>
+                                                    <Table.Cell>
+                                                        <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                                                            Edit
+                                                        </a>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                            </Table.Body>
+                                        </Table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

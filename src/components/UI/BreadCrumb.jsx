@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Breadcrumb } from "flowbite-react";
+import { Breadcrumb, BreadcrumbItem } from "flowbite-react";
 import { HiHome } from "react-icons/hi";
 
 const breadcrumbMap = {
@@ -15,19 +15,19 @@ const BreadCrumb = (props) => {
     const location = useLocation();
     const pathnames = location.pathname.split('/').filter((x) => x);
     const customTheme = {
-        root: {
-            base: "flex items-center text-sm font-medium text-white", // Chỉnh toàn bộ giao diện mặc định
-            list: "flex items-center",
+        "root": {
+            "base": "",
+            "list": ""
         },
-        item: {
-            base: "group flex items-center",
-            chevron: "mx-1 h-4 w-4 text-white group-first:hidden md:mx-2",
-            href: {
-                off: "flex items-center text-sm font-medium text-gray-500",
-                on: "flex items-center text-sm font-medium text-white hover:text-primaryColor",
+        "item": {
+            "base": "group flex items-center",
+            "chevron": "mx-1 h-4 w-4 text-gray-100 group-first:hidden md:mx-2",
+            "href": {
+                "off": "",
+                "on": ""
             },
-            icon: "mr-2 h-4 w-4",
-        },
+            "icon": "mr-2 h-4 w-4"
+        }
     };
 
 
@@ -59,14 +59,14 @@ const BreadCrumb = (props) => {
                 {/*        </>*/}
                 {/*    );*/}
                 {/*})}*/}
-                <Breadcrumb theme={customTheme}>
-                    <Breadcrumb.Item href="#" icon={HiHome} className="!text-white hover:text-primaryColor">
+                <Breadcrumb aria-label="Default breadcrumb example">
+                        <BreadcrumbItem theme={customTheme} href="#" icon={HiHome} className="!text-white hover:text-primaryColor">
                         {breadcrumbMap["/"]}
-                    </Breadcrumb.Item>
+                    </BreadcrumbItem>
                     {pathnames.map((value, index) => {
                         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
                         return (
-                            <Breadcrumb.Item href={to} className="!text-white hover:text-primaryColor">{breadcrumbMap[to] || value}</Breadcrumb.Item>
+                            <BreadcrumbItem theme={customTheme} href={to} className="!text-white hover:text-primaryColor">{breadcrumbMap[to] || value}</BreadcrumbItem>
                         )
                     })}
                 </Breadcrumb>

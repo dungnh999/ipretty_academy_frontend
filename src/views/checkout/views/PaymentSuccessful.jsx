@@ -23,13 +23,11 @@ const PaymentSuccessful = (props) => {
         console.log(e)
     )
 
-
     if(searchParams.get('vnp_ResponseCode') == "00"){
         TransactionService.createOrderTransactionsCourse('responesVnpay', 'errorsCb', {
             order_id: searchParams.get('vnp_OrderInfo'),
             payment_method : 'vnpay',
         })
-
     }
     const responesVnpay = (res) => {
         console.log(res)

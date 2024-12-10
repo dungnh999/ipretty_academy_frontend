@@ -35,6 +35,8 @@ const Sidebar = (props) => {
     }
 
     function handleResponeseCheckJoin(res){
+        console.log(dataCourse);
+        console.log(`/course/${slug}/learn/lecture/${dataCourse['firstLesson']['lesson_id']}`);
         navigate(`/course/${slug}/learn/lecture/${dataCourse['firstLesson']['lesson_id']}`);
     }
 
@@ -59,8 +61,8 @@ const Sidebar = (props) => {
         <>
             <div className='text-white gap-0 w-[20rem] mt-[-190px]'>
                 <div className='border-bgLigthGrey rounded-3xl overflow-hidden sticky top-[72px] shadow-xl'>
-                    <div className='relative cursor-pointer h-[250px]' onClick={openModal}>
-                        <img className='absolute h-[60px] w-[60px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]' src={play}/>
+                    <div className='relative cursor-pointer h-[250px] overflow-hidden' onClick={openModal}>
+                        <img className='absolute h-[60px] w-[60px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50' src={play}/>
                         <ImageBannerWithFallback src={process.env.API_URL + dataCourse['courseInfo']['course_feature_image']} className='w-full h-full border-none object-cover'/>
                     </div>
                     <div className='flex justify-center p-[1.88rem] items-center flex-col gap-[1rem] bg-whiteColor'>

@@ -74,7 +74,7 @@ const Feedbacks = (props) => {
                                 </div>
                             </div>
                         </SwiperSlide>
-                    ))    : <p className="text-center text-subColor">Không có khóa học nào.</p>}
+                    ))    : <p className="text-center text-subColor">Không có đánhg giá.</p>}
                 </Swiper>
             </div>
         </div>
