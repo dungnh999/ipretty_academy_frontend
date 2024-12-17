@@ -347,7 +347,7 @@ const Profile = (props) => {
                                                     {dataProgressCourse.map(function (item) {
                                                         return <SwiperSlide>
                                                             <Card
-                                                                className="max-w-sm"
+                                                                className="max-w-sm overflow-hidden"
                                                                 imgAlt="Meaningful alt text for an image that is not purely decorative"
                                                                 renderImage={() => <ImageBannerWithFallback width="500" height="500" src={ process.env.API_URL + item['course_feature_image']} alt="image 1"></ImageBannerWithFallback>}
                                                             >

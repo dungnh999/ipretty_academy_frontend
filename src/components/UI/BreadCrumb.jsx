@@ -59,8 +59,8 @@ const BreadCrumb = (props) => {
                 {/*        </>*/}
                 {/*    );*/}
                 {/*})}*/}
-                <Breadcrumb aria-label="Default breadcrumb example">
-                        <BreadcrumbItem theme={customTheme} href="#" icon={HiHome} className="!text-white hover:text-primaryColor">
+                <Breadcrumb aria-label="Default breadcrumb example" dark>
+                        <BreadcrumbItem theme={customTheme} href="#" icon={HiHome}  className="!text-white hover:text-primaryColor">
                         {breadcrumbMap["/"]}
                     </BreadcrumbItem>
                     {pathnames.map((value, index) => {
