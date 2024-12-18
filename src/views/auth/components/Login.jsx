@@ -87,12 +87,12 @@ const Login = (props) => {
                         </svg>
                     </button>
                 </div>
-                <div className="flex items-center mb-4">
-                    <input id="default-checkbox" type="checkbox" value=""
-                           className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "/>
-                        <label htmlFor="default-checkbox"
-                               className="ms-2 text-sm font-medium text-base font-normal">{ t('auth.remember')}</label>
-                </div>
+                {/*<div className="flex items-center mb-4">*/}
+                {/*    <input id="default-checkbox" type="checkbox" value=""*/}
+                {/*           className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "/>*/}
+                {/*        <label htmlFor="default-checkbox"*/}
+                {/*               className="ms-2 text-sm font-medium text-base font-normal">{ t('auth.remember')}</label>*/}
+                {/*</div>*/}
                 <button
                     className='w-full bg-primaryColor px-[1.5rem] py-[0.62rem] rounded-full text-base font-medium text-white'
                     onClick={() => handleLogin()}
