@@ -22,7 +22,7 @@ const Signup = (props) => {
             return;
         }
         if(password != rePassword){
-            toast.warn('Xác nhận mật khẩu không chính sác')
+            toast.warn('Xác nhận mật khẩu không chính xác')
             return;
         }
         AuthService.signup(responeseLogin, errorLogin ,email, password ,phone , name)

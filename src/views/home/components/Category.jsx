@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CourseCategoryService from "academy/service/CourseCategoryService"
 import {Link} from "react-router-dom";
+import ImageBannerWithFallback from "academy/components/Image/ImageBannerWithFallback";
 
 const Category = (props) => {
     const [dataCourseCategory , setDataCourseCategory] = useState([]);
@@ -41,9 +42,9 @@ const Category = (props) => {
             <div className="pt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {dataCourseCategory.map((item, index) => (
                     <Link to={'/course/category/' + item.category_id} >
-                        <div key={index} className="flex flex-col justify-center items-center border-2 rounded-xl p-8 shadow-xl hover:-translate-y-3 hover:shadow-gray-500/40 cursor-pointer">
+                        <div key={index} className="flex flex-col justify-center items-center border-2 rounded-xl p-8 shadow-xl hover:-translate-y-3 hover:shadow-gray-500/40 cursor-pointer h-full">
                             <div className="icon-category text-primaryColor">
-                                <span className="material-symbols-outlined text-2xl">weather_hail</span>
+                                <ImageBannerWithFallback width="500" height="40" src={ process.env.API_URL + item['course_category_attachment']} alt="image 1"></ImageBannerWithFallback>
                             </div>
                             <div className="name-category pt-4 font-semibold">{ item['category_name'] }</div>
                             <div className="number-course pt-2 text-subColor font-normal">{item['total_course']} Khoá học</div>
