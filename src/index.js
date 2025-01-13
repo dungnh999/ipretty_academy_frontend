@@ -9,6 +9,7 @@ import { I18nextProvider } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
 import 'sweetalert2/src/sweetalert2.scss'
 import { ToastContainer} from 'react-toastify';
+import ScrollToTop from "academy/components/ScrollToTop/ScrollToTop";
 
 
 const App = (RouterApp);

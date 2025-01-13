@@ -14,6 +14,7 @@ const Sidebar = (props) => {
         open: false,
         course_name: "",
     })
+    console.log(dataCourse);
     const changeVideoCourse = async (item, event) => {
         const dataPurpose = event.currentTarget.getAttribute('data-purpose');
         const matches = dataPurpose.match(/curriculum-item-(\d+)-(\d+)/);
@@ -80,7 +81,7 @@ const Sidebar = (props) => {
                                             <div className='flex flex-col'>
                                                 {item['chapter_name']}
                                                 <span
-                                                    className='text-sm font-normal'>0 / {item['lessons'].length}</span>
+                                                    className='text-sm font-normal'> {item['lessons'].filter(lesson => lesson.isPassed).length} / {item['number_lesson']}</span>
                                             </div>
                                             <svg
                                                 className="h-6 w-6 flex-none stroke-slate-700 group-open:stroke-primaryColor"
@@ -110,7 +111,8 @@ const Sidebar = (props) => {
                                                                     <span
                                                                         className="leading-none text-sm font-normal text-sm text-borderButtonColor">{convertToMinutesAndSeconds(itemLesson['timer'])}</span>
                                                             {/*<span className="material-symbols-outlined">done</span>*/}
-                                                            {itemLesson.isPassed ? '' : <span
+                                                            {itemLesson.isPassed ? <span
+                                                                className="material-symbols-outlined text-primaryColor"> task_alt </span> : <span
                                                                 className="material-symbols-outlined">lock</span>}
                                                         </div>
                                                     </div>

@@ -16,7 +16,7 @@ const Header = (props) => {
                         <div className='w-[40px] h-[40px]'>
                             <CircularProgressbar
                                 value={dataCourse['courseInfo']['percent_done']}
-                                text={dataCourse['courseInfo']['percent_done'] + '%'}
+                                text={parseFloat(dataCourse['courseInfo']['percent_done']).toFixed() + '%'}
                                 styles={buildStyles({
                                     // Rotation of path and trail, in number of turns (0-1)
                                     rotation: 0.25,

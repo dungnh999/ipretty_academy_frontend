@@ -54,7 +54,7 @@ const ModalReview = ({ modalIsOpen, closeModal, lesson}) => {
             <div className='list-course-review pt-8'>
                 {demoLessons.map((item, key)  => (
                     <div className='item-course-review flex items-center gap-[16px] px-[24px] py-[16px] hover:bg-bgGray cursor-pointer' onClick={() => handleClickVideo(item['main_attachment'])}>
-                        <ImageBannerWithFallback className='h-[46px] w-[74px] rounded' src={'https://img.youtube.com/vi/'+ item['main_attachment'] +  '/hqdefault.jpg'}/>
+                        <ImageBannerWithFallback wrapperClassName='!w-auto' className='h-[46px] w-[74px] rounded' src={'https://img.youtube.com/vi/'+ item['main_attachment'] +  '/hqdefault.jpg'}/>
                         <div className='text-black font-semibold flex-1'>{ item['lesson_name'] }</div>
                         <span className="leading-none text-sm font-normal">{convertToMinutesAndSeconds(item['timer'])}</span>
                     </div>

@@ -11,22 +11,24 @@ const VideoPlayer = (props) => {
     const [isFastForwarding, setIsFastForwarding] = useState(false);
     const [isPlaying, setIsPlaying] = useState(true);
     const {dataCourse} = useDetailCourseContext();
-    const {course, dataLessonById} = dataCourse;
+    const {courseInfo, dataLessonById} = dataCourse;
     const [seekBackTime, setSeekBackTime] = useState(null);
 
 
     const handleProgress = (state) => {
         const currentTime = state.playedSeconds;
-        const timeDifference = currentTime - lastTime;
-        // Giới hạn tua nhanh (ví dụ: 2 giây)
-        const fastForwardThreshold = 2;
-        if (timeDifference > fastForwardThreshold) {
-            setIsFastForwarding(true);
-            setSeekBackTime(true);
-            setIsPlaying(true);
-        }
-        setLastTime(currentTime);
+        // const timeDifference = currentTime - lastTime;
+        // // Giới hạn tua nhanh (ví dụ: 2 giây)
+        // const fastForwardThreshold = 2;
+        // if (timeDifference > fastForwardThreshold) {
+        //     setIsFastForwarding(true);
+        //     setSeekBackTime(true);
+        //     setIsPlaying(true);
+        // }
+        // setLastTime(currentTime);
     };
+
+    console.log(courseInfo);
 
     const onEnded = () => {
         if (!dataLessonById.isPassed) {
@@ -45,7 +47,7 @@ const VideoPlayer = (props) => {
 
     const updateProcessLesson = () => {
         const data = new FormData()
-        data.append('course_id', course.course_id)
+        data.append('course_id', courseInfo.course_id)
         data.append('lesson_id', dataLessonById.id)
         data.append('view_duration', dataLessonById.lesson_duration)
         LessonService.updateProcessLesson(data,

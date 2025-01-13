@@ -46,8 +46,8 @@ import {UPDATE_PROCESS_LESSON} from "academy/service/constances";
 //     return axios.post(DELETE_LESSONS_URL, data, xAuthToken(isformData))
 // }
 
-function updateProcessLesson(data) {
-    return TemplateAxios.axiosTemplate('POST', UPDATE_PROCESS_LESSON, '', data);
+function updateProcessLesson(data, responseCb , errorCb) {
+    return TemplateAxios.axiosTemplate('POST', UPDATE_PROCESS_LESSON, '', data,responseCb,errorCb );
 }
 
 const LessonService = {

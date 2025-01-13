@@ -27,6 +27,7 @@ import PrivateRouter from "./PrivateRouter";
 import Notification from "academy/views/notification/views/notification"
 import Profile from "academy/views/profile/views/index"
 import CourseCategory from "academy/views/course-category/views/course-category";
+import ScrollToTop from "academy/components/ScrollToTop/ScrollToTop";
 /**
  * Router Public
  * */
@@ -58,6 +59,7 @@ const HomeLayoutMain = ({component: Component, isLoggerIn, ...rest}) => (<>
  * */
 const AppRouter = () => {
     return (<>
+        <ScrollToTop/>
         <PublicRouter path="/" element={<Home/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/blog/1" element={<Blog/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/login" element={<Auth/>} template={<HomeLayoutMain/>}/>
