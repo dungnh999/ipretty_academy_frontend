@@ -36,6 +36,10 @@ const TabsCourse = (props) => {
         }
     }
 
+    const timeCourse = dataCourse['listChapterLesson']
+        .flatMap(chapter => chapter.lessons) // Lấy tất cả các bài học
+        .reduce((total, lesson) => total + Number(lesson.timer), 0); // Tính tổng `timer`
+
     const tabs = [
         {
             name: 'Tổng quan',
@@ -66,7 +70,7 @@ const TabsCourse = (props) => {
                                     </div>
                                     <div className='box-time flex gap-[1rem] mr-[0.5rem] font-normal leading-normal'>
                                         <div>{item['number_lesson']} Bài học</div>
-                                        <div>45 Mins</div>
+                                        <div>{convertToHourMinuteCourse(timeCourse)}</div>
                                     </div>
                                 </summary>
                                 <div className="flex flex-col">

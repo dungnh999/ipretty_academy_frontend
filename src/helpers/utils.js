@@ -22,10 +22,9 @@ export const formartCurrencyVNĐ = (number) => {
 
 
 export const convertToMinutesAndSeconds = (decimalMinutes) => {
-    const minutes = Math.floor(decimalMinutes); // Lấy phần nguyên để biểu diễn phút
-    const decimalPart = decimalMinutes - minutes; // Lấy phần thập phân
-    const seconds = Math.round(decimalPart * 60); // Chuyển phần thập phân thành giây
-    return `${minutes}:${seconds}`;
+    const minutes = Math.floor(decimalMinutes / 60); // Tính số phút
+    const remainingSeconds = decimalMinutes % 60; // Lấy phần giây còn lại
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`; // Định dạng giây với 2 chữ số
 }
 
 export const fomartTimeString = (timestamp) => {
@@ -48,22 +47,28 @@ export const convertToDayHourMinute = (total_duration) => {
 };
 
 export const convertToHourMinuteCourse = (total_duration) => {
-    const days = Math.floor(total_duration / 24); // Tính số ngày
-    const hours = Math.floor(total_duration % 24); // Tính số giờ còn lại
-    const minutes = Math.round((total_duration - Math.floor(total_duration)) * 60); // Chuyển phần thập phân thành phút và làm tròn
+    const days = Math.floor(total_duration / (24 * 3600)); // Số ngày
+    const hours = Math.floor((total_duration % (24 * 3600)) / 3600); // Số giờ còn lại
+    const minutes = Math.floor((total_duration % 3600) / 60); // Số phút còn lại
+    const seconds = (total_duration % 60).toFixed(0); // Lấy số giây (làm tròn 2 chữ số thập phân)
 
-    // Nếu có ngày, hiển thị ngày, giờ và phút
+    // Nếu có ngày, hiển thị ngày, giờ, phút
     if (days > 0) {
-        return `${days} ngày  ${hours} giờ  ${minutes} phút`;
+        return `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
     }
 
-    // Nếu không có ngày, chỉ hiển thị giờ và phút
+    // Nếu có giờ, hiển thị giờ, phút
     if (hours > 0) {
-        return `${hours} giờ  ${minutes} phút`;
+        return `${hours} giờ ${minutes} phút ${seconds} giây`;
     }
 
-    // Nếu chỉ có phút
-    return `${minutes} phút`;
+    // Nếu chỉ có phút và giây
+    if (minutes > 0) {
+        return `${minutes} phút ${seconds} giây`;
+    }
+
+    // Nếu chỉ có giây
+    return `${seconds} giây`;
 };
 
 
