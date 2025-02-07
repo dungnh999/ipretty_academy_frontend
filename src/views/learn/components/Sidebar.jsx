@@ -14,7 +14,6 @@ const Sidebar = (props) => {
         open: false,
         course_name: "",
     })
-    console.log(dataCourse);
     const changeVideoCourse = async (item, event) => {
         const dataPurpose = event.currentTarget.getAttribute('data-purpose');
         const matches = dataPurpose.match(/curriculum-item-(\d+)-(\d+)/);
