@@ -1,7 +1,8 @@
 import React from 'react';
 import Icon from 'academy/assets/Image/mortarboard.svg'
+
 const Why = (props) => {
-    return(
+    return (
         <>
             <div className="flex justify-center items-center">
                 <div>
@@ -22,7 +23,8 @@ const Why = (props) => {
                 <div className="flex flex-col items-center pb-10">
                     <img className="w-24 h-24 mb-3 "
                          src={Icon} alt="Bonnie image"/>
-                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Chuẩn Quốc Tế - Công nghệ vượt trội</h5>
+                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Chuẩn Quốc Tế - Công nghệ
+                        vượt trội</h5>
                     <span className="text-sm text-gray-500 dark:text-gray-400">UY TÍN – DẪN ĐẦU</span>
                 </div>
                 <div className="flex flex-col items-center pb-10">

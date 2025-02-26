@@ -1,85 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import PostCategoryService from "academy/service/PostCategoryService";
 
 const SidebarBlog = (props) => {
+
+    const [dataPostCategory, setDataPostCategory] = useState([])
+
+    useEffect(() => {
+        PostCategoryService.getListPostCategory(handleResponses, handlError, {
+            status: 1
+        })
+    }, dataPostCategory)
+
+    function handleResponses(res) {
+        console.log(res.data.data)
+        setDataPostCategory(res.data.data);
+    }
+
+    function handlError(res) {
+        console.log(res)
+    }
+
+
     return (
-        <div className="w-[25%] flex flex-col gap-[1.88rem] sticky">
+        <div className="w-[25%] flex flex-col gap-[1.88rem] sticky h-full top-[100px]">
             <div className="item-sort">
-                <h1 className="text-xl font-semibold capitalize text-black">Danh mục bài viết</h1>
-                <ul className="mt-[1.25rem] flex flex-col gap-[0.62rem]">
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Commercial</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Office</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Shop</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Educate</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Academy</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">Studio</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                    <li className="flex justify-between items-center">
-                        <div className="group-name">
-                            <div className="flex items-center space-x-3">
-                                <h1 className="text-base font-normal leading-none capitalize">University</h1>
-                            </div>
-                        </div>
-                        <div className="count-course">
-                            <p className="font-normal text-subColor text-base">0</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div className="item-sort">
-                <h1 className="text-xl font-semibold capitalize text-black">Recent posts</h1>
+                <h1 className="text-xl font-semibold capitalize text-black">Bài viết gần đây</h1>
                 <ul className="mt-[1.25rem] flex flex-col gap-[1rem]">
                     <li className="flex justify-between items-start gap-[1rem] hover:bg-bgLigthGrey cursor-pointer rounded-lg">
                         <div className="image-thumb-blog min-w-[5.625rem] h-[5.625rem] rounded-lg overflow-hidden">
@@ -116,24 +61,13 @@ const SidebarBlog = (props) => {
             <div className="item-sort">
                 <h1 className="text-xl font-semibold capitalize text-black">Danh mục bài viết</h1>
                 <ul className="mt-[1.25rem] flex flex-wrap gap-[0.62rem]">
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free
-                    </li>
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free
-                    </li>
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free
-                    </li>
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free couses
-                    </li>
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free couses
-                    </li>
-                    <li className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
-                        Free couses
-                    </li>
+                    {
+                        (dataPostCategory) ? dataPostCategory.map((item , key) => (
+                            <li key={key} className='px-[1.25rem] py-[0.5rem] max-w-max border rounded-lg cursor-pointer hover:bg-primaryColor'>
+                                {item.category_name}
+                            </li>
+                        )) : 'Không có bài viết'
+                    }
                 </ul>
             </div>
         </div>

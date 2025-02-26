@@ -22,7 +22,6 @@ const Feedbacks = (props) => {
     }
 
     function handlError(res) {
-        // setDataCourse(res.data.data);
         console.log(res)
     }
 

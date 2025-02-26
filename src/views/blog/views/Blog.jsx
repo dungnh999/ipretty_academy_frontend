@@ -5,6 +5,8 @@ import ListBlog from "academy/views/blog/components/ListBlog";
 import SidebarBlog from "academy/components/Blog/sidebarBlog";
 
 const Home = (props) => {
+
+
     return (
         <div>
             <BreadCrumb/>

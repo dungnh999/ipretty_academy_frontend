@@ -23,8 +23,8 @@ const BreadCrumb = (props) => {
             "base": "group flex items-center",
             "chevron": "mx-1 h-4 w-4 text-gray-100 group-first:hidden md:mx-2",
             "href": {
-                "off": "",
-                "on": ""
+                "off": "!text-white-700",
+                "on": "!text-white-700"
             },
             "icon": "mr-2 h-4 w-4"
         }
@@ -59,14 +59,14 @@ const BreadCrumb = (props) => {
                 {/*        </>*/}
                 {/*    );*/}
                 {/*})}*/}
-                <Breadcrumb aria-label="Default breadcrumb example" dark>
+                <Breadcrumb theme={customTheme}  aria-label="Default breadcrumb example">
                         <BreadcrumbItem theme={customTheme} href="#" icon={HiHome}  className="!text-white hover:text-primaryColor">
                         {breadcrumbMap["/"]}
                     </BreadcrumbItem>
                     {pathnames.map((value, index) => {
                         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
                         return (
-                            <BreadcrumbItem theme={customTheme} href={to} className="!text-white hover:text-primaryColor">{breadcrumbMap[to] || value}</BreadcrumbItem>
+                            <BreadcrumbItem href={to} className="!text-white hover:text-primaryColor">{breadcrumbMap[to] || value}</BreadcrumbItem>
                         )
                     })}
                 </Breadcrumb>

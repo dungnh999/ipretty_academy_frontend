@@ -9,9 +9,6 @@ function getListCommentByCourse(responseCb, errors, param ){
     return TemplateAxios.axiosTemplate('GET', GET_LIST_COMMENT_BY_COURSE, param , '' , responseCb, errors);
 }
 
-
-
-
 const CommentService = {
     getListComment,
     getListCommentByCourse

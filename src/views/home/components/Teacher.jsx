@@ -8,30 +8,26 @@ import {Avatar, Rating} from "flowbite-react";
 import {convertToHourMinuteCourse, formartCurrencyVNĐ} from "academy/helpers/utils";
 
 const Teacher = (props) => {
-
     const [dataCourse , setDataCourse] = useState([
         {
             id: 1,
             name : 'BS Nguyễn Thế Vỹ',
             avatar : 'https://ipretty.vn/wp-content/uploads/1.-BS-Nguyen-The-Vy.png',
-            mota : 'Học hàm, học vị: Tiến sĩ, Bác sĩ\n' +
-                'Chuyên khoa: Da liễu, Thẩm mỹ da\n' +
-                'Trưởng Khoa Phẫu Thuật Laser Chăm sóc da, Bv Da liễu Hà Nội\n' +
-                'Phụ trách chuyên môn...'
-        },
-        {
+            mota :  'Học hàm, học vị: Tiến sĩ, Bác sĩ\n' +
+                    'Chuyên khoa: Da liễu, Thẩm mỹ da\n' +
+                    'Trưởng Khoa Phẫu Thuật Laser Chăm sóc da, Bv Da liễu Hà Nội\n' +
+                    'Phụ trách chuyên môn...'
+        }, {
             id: 2,
             name : 'BS Trần Đức Phương',
             avatar : 'https://ipretty.vn/wp-content/uploads/3.-BS-Tran-Duc-Phuong.png',
             mota : 'Bác sĩ là một trong những Bác sĩ đầu ngành trong lĩnh vực Thẩm mỹ làm đẹp tại Việt Nam, với hơn 14 năm tu nghiệp và hành nghề phẫu thuật thẩm mỹ tại Mỹ...'
-        },
-        {
+        }, {
             id: 3,
             name : 'BS Vũ Ngọc Quý',
             avatar : 'https://ipretty.vn/wp-content/uploads/4.-BS-Vu-Ngoc-Quy.png',
             mota : 'Thạc sĩ, Bác sĩ Vũ Ngọc Quý - Bác sĩ/Thành viên ban cố vấn chuyên môn của Ipretty Group đã có nhiều năm kinh nghiệm trong lĩnh vực Da liễu - Thẩm mỹ...'
-        },
-        {
+        }, {
             id: 4,
             name : ' BS Vũ Thái Hà',
             avatar : 'https://ipretty.vn/wp-content/uploads/5.-BS-Vu-Thai-Ha.png',
@@ -52,7 +48,6 @@ const Teacher = (props) => {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
-
     return (
         <div>
             <div className="flex justify-between items-center mb-[2.12rem]">
@@ -61,7 +56,6 @@ const Teacher = (props) => {
                     <p className="text-base text-subColor">tại Việt Nam</p>
                 </div>
             </div>
-
             <div className="relative">
                 {/* Custom Navigation Buttons */}
                 <button
@@ -127,9 +121,7 @@ const Teacher = (props) => {
                     )) : <p className="text-center text-subColor">Không có khóa học nào.</p>}
                 </Swiper>
             </div>
-
         </div>
-
     )
 };
 

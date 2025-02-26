@@ -14,12 +14,12 @@ import Icon6 from 'academy/assets/Image/brand/13.-mango-drop.png'
 import Icon7 from 'academy/assets/Image/brand/anne.png'
 import Icon8 from 'academy/assets/Image/brand/Dermadrop-1.png'
 import Icon9 from 'academy/assets/Image/brand/Dermedic-8.png'
+
 const Brand = (props) => {
 
 
     const prevRef = useRef(null);
     const nextRef = useRef(null);
-
 
     return (
         <>
@@ -42,7 +42,7 @@ const Brand = (props) => {
                             spaceBetween: 10,
                         },
                     }}
-                    modules={ [Mousewheel, Keyboard]}
+                    modules={[Mousewheel, Keyboard]}
                     className="mySwiper relative"
                 >
                     <SwiperSlide>
@@ -91,7 +91,7 @@ const Brand = (props) => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="group  rounded-lg overflow-hidden ">
+                        <div className="group rounded-lg overflow-hidden ">
                             <ImageBannerWithFallback
                                 className="object-cover w-full h-full"
                                 src={Icon6}

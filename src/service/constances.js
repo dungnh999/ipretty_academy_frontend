@@ -86,3 +86,16 @@ export const GET_MY_COURSE = API_URL + 'my-courses'
 
 export const GET_LIST_COMMENT = API_URL + 'feedback'
 export const GET_LIST_COMMENT_BY_COURSE = API_URL + 'rating-comment-course'
+
+
+/**
+ * POST CATEGORY
+ * */
+export const GET_LIST_POST_CATEGORY = API_URL + 'post-categories'
+// export const GET_DETAIL_POST = API_URL + 'posts/posts-slug'
+
+/**
+ * POST
+ * */
+export const GET_LIST_POST = API_URL + 'posts'
+export const GET_DETAIL_POST = API_URL + 'posts/posts-slug'

@@ -61,10 +61,10 @@ const AppRouter = () => {
     return (<>
         <ScrollToTop/>
         <PublicRouter path="/" element={<Home/>} template={<HomeLayoutMain/>}/>
-        <PublicRouter path="/blog/1" element={<Blog/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/blog" element={<Blog/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/login" element={<Auth/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/forgot" element={<Forgot/>} template={<HomeLayoutMain/>}/>
-        <PublicRouter path="/detail-blogs" element={<BlogDetail/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/blog/:slug" element={<BlogDetail/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/error" element={<Error404/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/faqs" element={<Faqs/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/contact" element={<Contact/>} template={<HomeLayoutMain/>}/>
@@ -83,7 +83,6 @@ const AppRouter = () => {
                 <Route exact path=":id" element={<LearnView/>}></Route>
             </Route>
         </Routes>
-
     </>)
 }
 

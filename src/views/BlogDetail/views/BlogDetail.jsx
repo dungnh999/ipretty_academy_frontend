@@ -6,6 +6,8 @@ import FormComment from "academy/components/UI/FormComment";
 import ContentBlog from "academy/views/BlogDetail/components/ContentBlog";
 
 const BlogDetail = (props) => {
+
+
     return (
         <div>
             <BreadCrumb/>
