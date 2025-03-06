@@ -99,3 +99,9 @@ export const GET_LIST_POST_CATEGORY = API_URL + 'post-categories'
  * */
 export const GET_LIST_POST = API_URL + 'posts'
 export const GET_DETAIL_POST = API_URL + 'posts/posts-slug'
+
+
+/**
+ * MEDIA
+ * */
+export const GET_LIST_MEDIA = API_URL + 'media'

@@ -5,6 +5,7 @@ import 'swiper/swiper-bundle.css';
 import 'swiper/css/pagination';
 import 'academy/assets/css/swiperCustom.css'
 import BannerService from "academy/service/BannerService";
+import banner from "academy/views/detail/components/banner";
 
 
 const Banner = (props) => {
@@ -25,6 +26,8 @@ const Banner = (props) => {
     function handlError(res) {
         // setDataCourse(res.data.data);
     }
+
+    console.log(banner);
 
     return (
         <div className='mx-auto w-full'>

@@ -28,6 +28,7 @@ import Notification from "academy/views/notification/views/notification"
 import Profile from "academy/views/profile/views/index"
 import CourseCategory from "academy/views/course-category/views/course-category";
 import ScrollToTop from "academy/components/ScrollToTop/ScrollToTop";
+import MediaView from "academy/views/media/views/MediaView";
 /**
  * Router Public
  * */
@@ -64,6 +65,7 @@ const AppRouter = () => {
         <PublicRouter path="/blog" element={<Blog/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/login" element={<Auth/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/forgot" element={<Forgot/>} template={<HomeLayoutMain/>}/>
+        <PublicRouter path="/media" element={<MediaView/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/blog/:slug" element={<BlogDetail/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/error" element={<Error404/>} template={<HomeLayoutMain/>}/>
         <PublicRouter path="/faqs" element={<Faqs/>} template={<HomeLayoutMain/>}/>

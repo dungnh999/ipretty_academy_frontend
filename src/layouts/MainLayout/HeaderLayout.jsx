@@ -122,7 +122,7 @@ const HeaderLayout = (props) => {
                         <Navbar.Link><Link to="/course">Khóa học</Link></Navbar.Link>
                         <Navbar.Link><Link to="">Lịch khai giảng</Link></Navbar.Link>
                         <Navbar.Link><Link to="">Dịch vụ</Link></Navbar.Link>
-                        <Navbar.Link><Link to="">Thư viện hình ảnh</Link></Navbar.Link>
+                        <Navbar.Link><Link to="/media">Thư viện hình ảnh</Link></Navbar.Link>
                         <Navbar.Link><Link to="">Tin tức</Link></Navbar.Link>
                         <Navbar.Link><Link to="/blog">Bài viết</Link></Navbar.Link>
                         <Navbar.Link><Link to="/contact">Liên hệ</Link></Navbar.Link>
